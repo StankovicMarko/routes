@@ -1,0 +1,123 @@
+/* some style */
+
+
+body, html{
+    padding: 0;
+    margin: 0;
+}
+
+.ui.menu {
+
+    border: 0 none !important;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+  /* background-color : #2185d0 !important; */
+  /* padding : 10px; */
+}
+
+
+.light-blue {
+    background-color: #F2FEFE !important;
+
+}
+
+.padded-row{
+
+    padding-left: 10% !important;
+    padding-right: 10% !important;
+}
+
+.card-def {
+    -webkit-box-shadow: unset !important;
+    box-shadow: unset !important;
+    line-height: 1.8;
+    font-size: 1.3em;
+
+
+    padding: unset !important;
+
+
+     /* width: 80% !important; */
+}
+
+.ui.card:hover {
+    -webkit-box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.1) !important;
+    box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.1) !important;
+
+    background-color: #fff !important;
+
+    -webkit-transform: translateY(-5px);
+    transform: translateY(-5px);
+
+
+    border-radius: 10px;
+
+}
+
+
+.ui.card:hover img {
+    -webkit-filter: grayscale(0);
+    filter: grayscale(0);
+
+}
+
+.no-top-border {
+    border-top: none !important;
+
+}
+
+.gray-img {
+    -webkit-filter: grayscale(100%);
+    filter: grayscale(100%);
+}
+
+
+.img-shadow {
+    -webkit-box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.5);
+}
+
+.segment-bg {
+
+    background: #75cbe7;
+    background: -webkit-gradient(linear, left top, left bottom, from(#75cbe7), to(#138fc2)) !important;
+    background: linear-gradient(to bottom, #75cbe7 0%, #138fc2 100%) !important;
+
+}
+
+.transparent-bg {
+
+    background: inherit !important;
+    color: white;
+
+}
+
+.no-border{
+    border: unset !important;
+    -webkit-box-shadow: unset !important;
+    box-shadow: unset !important;
+}
+
+
+
+/* FAQ */
+.gray-text {
+    color: #515656 !important;
+}
+
+.title:hover {
+    color: black !important;
+}
+
+h2{
+
+    text-align: center;
+    margin-top: 8% !important;
+    margin-bottom: 8% !important;
+}
+
+
+.content> p {
+    margin-left: 40px;
+    margin-bottom: 3% !important;
+}
