@@ -121,3 +121,17 @@ h2{
     margin-left: 40px;
     margin-bottom: 3% !important;
 }
+
+
+.row {
+
+    min-height: 70vh !important;
+}
+
+ui.placeholder.segment .button, .ui.placeholder.segment .field, .ui.placeholder.segment textarea, .ui.placeholder.segment>.ui.input {
+    max-width: unset !important;
+}
+
+.ui.placeholder.segment textarea{
+    min-height: 30vh !important;
+}

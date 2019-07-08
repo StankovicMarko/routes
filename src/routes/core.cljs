@@ -1,12 +1,12 @@
 (ns ^:figwheel-hooks routes.core
   (:require
    [goog.dom :as gdom]
+   [goog.object :as goog-obj]
    [reagent.core :as r]
    [routes.abc :as abc]
    [cljsjs.semantic-ui-react :as ui]))
 
 
-(defn multiply [a b] (* a b))
 
 (defn feature-card []
   [:> ui/Segment {:inverted true}
@@ -236,7 +236,60 @@
 
 
 
+(defn contact []
+  (let [form-data (r/atom {})
+        company? (r/atom nil)]
+    (fn []
+      [:div
+       [:> ui/Segment {:class-name "no-border segment-bg"
+                       :padded true}
+        [:> ui/Container {:text-align :center}
+         [:> ui/Segment {:placeholder true
+                         :class-name "transparent-bg no-border"}
+          [:h2 "CONTACT US"]
 
+          [:> ui/Form {:on-submit #(println @form-data)}
+           [:> ui/Form.Group {:widths "equal"}
+            [:> ui/Form.Input {:placeholder "Your name"
+                               :fluid true
+                               :on-change (fn [e this]
+                                            (swap! form-data assoc :name (goog-obj/get this #js ["value"])))}]
+            [:> ui/Form.Input {:placeholder "E-mail address",
+                               :fluid true
+                               :on-change (fn [e this]
+                                            (swap! form-data assoc :email (goog-obj/get this #js ["value"])))}]]
+           [:> ui/Form.Group {:inline true
+                              :widths "equal"}
+            [:> ui/Form.Field
+             [:> ui/Checkbox {:label "Are you representative of a company?"
+                              :on-change (fn [e this] (do
+                                                        (reset! company? (goog-obj/get this #js ["checked"]))
+                                                        (swap! form-data dissoc :website)))}]]]
+           [:> ui/Form.Group {:widths "equal"}
+            (when @company?
+              [:> ui/Form.Input {:placeholder "Company website"
+                                 :fluid true
+                                 :on-change (fn [e this]
+                                              (swap! form-data assoc :website (goog-obj/get this #js ["value"])))}])]
+           [:> ui/Form.Group {:widths "equal"}
+            [:> ui/Form.Input {:placeholder "Message topic"
+                               :fluid true
+                               :on-change (fn [e this]
+                                            (swap! form-data assoc :topic (goog-obj/get this #js ["value"])))}]]
+           [:> ui/Form.TextArea {:placeholder "Your message"
+                                 :on-change (fn [e this]
+                                              (swap! form-data assoc :message (goog-obj/get this #js ["value"])))}]
+           [:> ui/Form.Checkbox {:label "I want to be informed about new features and information"
+                                 :on-change (fn [e this] (swap! form-data assoc :gdpr (goog-obj/get this #js ["checked"])))}]
+           [:> ui/Form.Button "Submit"]]]]]])))
+
+
+
+(defn footer []
+  [:div {:style {:background :blue
+                 :height :50px
+                 :text-align :center}}
+   "BUS ROUTES all rights received"])
 
 
 (defn layout []
@@ -281,8 +334,12 @@
 
    [:> ui/Grid.Row
     [:> ui/Grid.Column
-     [:div {:style {:height "200px"
-                    :background :blue}}]]
+     [contact]]
+    ]
+
+   [:> ui/Grid.Row
+    [:> ui/Grid.Column
+     [footer]]
     ]
 
    ])
