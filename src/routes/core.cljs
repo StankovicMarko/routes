@@ -8,53 +8,43 @@
 
 
 
-(defn feature-card []
-  [:> ui/Segment {:inverted true}
-   [:> ui/Button
-    {
-     :color :blue
-     :inverted true
-     :on-click #(println "haa")}
-    "show modal"]
-   ]
-  )
 
-(defn nav-bar []
+(defn nav-bar [ref]
   (let [state (r/atom :home)]
     (fn []
+      [:> ui/Sticky {:context @ref}
        [:> ui/Segment {:inverted true
-                       :color :blue
-                       ;;:attached :top
-
-                       ;; pogledaj sticky radi sa gridom
-                       }
-
+                       :color :blue}
         [:> ui/Menu {:inverted true
                      :pointing true
                      :secondary true
                      :stackable true
-                     :size :massive
-                     }
+                     :size :massive}
          [:> ui/Menu.Menu {:position :left}
 
           [:> ui/Menu.Item [:h1 "Bus Routes"]]]
 
          [:> ui/Menu.Menu {:position :right}
 
-          [:> ui/Menu.Item {:active (= @state :home)
+          [:> ui/Menu.Item {:href "#home"
+                            :active (= @state :home)
                             :on-click #(reset! state :home)} "Home"]
 
-          [:> ui/Menu.Item {:active (= @state :how)
+          [:> ui/Menu.Item {:href "#how"
+                            :active (= @state :how)
                             :on-click #(reset! state :how)} "How it works"]
 
-          [:> ui/Menu.Item {:active (= @state :what)
+          [:> ui/Menu.Item {:href "#what"
+                            :active (= @state :what)
                             :on-click #(reset! state :what)} "What we offer"]
 
-          [:> ui/Menu.Item {:active (= @state :faq)
+          [:> ui/Menu.Item {:href "#faq"
+                            :active (= @state :faq)
                             :on-click #(reset! state :faq)} "FAQ"]
 
-          [:> ui/Menu.Item {:active (= @state :contact)
-                            :on-click #(reset! state :contact)} "Contact"]]]])))
+          [:> ui/Menu.Item {:href "#contact"
+                            :active (= @state :contact)
+                            :on-click #(reset! state :contact)} "Contact"]]]]])))
 
 (defn parallax []
   [:> ui/Segment
@@ -138,8 +128,10 @@
       [:div
        [:> ui/Segment {:class-name "no-border segment-bg"
                        :padded true}
+
         [:> ui/Container {:text-align :center}
          [what-menu-item (get items @index)]]
+
 
         [:> ui/Menu {:inverted true
                      :pointing true
@@ -245,10 +237,11 @@
                        :padded true}
         [:> ui/Container {:text-align :center}
          [:> ui/Segment {:placeholder true
-                         :class-name "transparent-bg no-border"}
+                         :class-name "transparent-bg no-border padded-row"}
           [:h2 "CONTACT US"]
 
-          [:> ui/Form {:on-submit #(println @form-data)}
+          [:> ui/Form {:on-submit #(println @form-data)
+                       :class-name "padded-row"}
            [:> ui/Form.Group {:widths "equal"}
             [:> ui/Form.Input {:placeholder "Your name"
                                :fluid true
@@ -286,73 +279,108 @@
 
 
 (defn footer []
-  [:div {:style {:background :blue
-                 :height :50px
-                 :text-align :center}}
-   "BUS ROUTES all rights received"])
+  [:> ui/Container {:text true
+                    :class-name "light-blue gray-text"
+                    :text-align :center}
+   [:> ui/Grid {:stackable true
+                :class-name :light-blue}
+
+    ;; use POPUP instead of title
+
+    [:> ui/Grid.Row {:columns 2}
+     [:> ui/Grid.Column
+      [:p "We can't wait for you to enage with us on social networks"]]
+     [:> ui/Grid.Column
+      [:> ui/Icon {:name "facebook official"
+                   :title "Facebook"
+                   ;;:color :blue
+                   :class-name "no-border"
+                   :circular true
+                   :size :big
+
+                   }]
+      [:> ui/Icon {:name "linkedin alternate"
+                   :title "Linkedin"
+                   ;;:color :blue
+                   :class-name "no-border"
+                   :circular true
+                   :size :big
+                   }]]]]]
+
+  )
 
 
 (defn layout []
-  [:> ui/Grid {:stackable true
-               :class-name :light-blue}
-
-   [:> ui/Grid.Row
-    [:> ui/Grid.Column
-     [nav-bar]]]
-
-   [:> ui/Grid.Row
-    [:> ui/Grid.Column
-     [parallax]]]
+  (let [ref (r/atom nil)]
+    (fn []
+      [:> ui/Ref {:inner-ref #(reset! ref %)}
+       [:> ui/Grid {:stackable true
+                    :class-name :light-blue}
 
 
-   [:> ui/Grid.Row
-    {:columns 3
-     :class-name "light-blue padded-row"}
-    (for [item [{:header "Step 1"
-                 :src "img/how1.png"
-                 :desc "Contact us and about pricing plans and information about data that's needed in order to make system operational"}
-                {:header "Step 2"
-                 :src "img/how2.png"
-                 :desc "We setup online services and mobile apps with data you provided"}
-                {:header "Step 3"
-                 :src "img/how3.png"
-                 :desc "You enjoy full control over the system while you customers have many perks one of which is knowing when bus is coming"}]]
-      ^{:key (:header item)}
-      [:> ui/Grid.Column
-       [how item]])]
+        [:> ui/Grid.Row {:id :nav-bar}
+         [:> ui/Grid.Column
+          [:div.anchor-offset {:id "home"}]
+          [nav-bar ref]]]
+
+        [:> ui/Grid.Row
+         [:> ui/Grid.Column
+          [parallax]
+          [:div.anchor-offset {:id "how"}]]]
+
+
+        [:> ui/Grid.Row {:columns 3
+                         :class-name "light-blue padded-row"}
+         (for [item [{:header "Step 1"
+                      :src "img/how1.png"
+                      :desc "Contact us and about pricing plans and information about data that's needed in order to make system operational"}
+                     {:header "Step 2"
+                      :src "img/how2.png"
+                      :desc "We setup online services and mobile apps with data you provided"}
+                     {:header "Step 3"
+                      :src "img/how3.png"
+                      :desc "You enjoy full control over the system while you customers have many perks one of which is knowing when bus is coming"}]]
+           ^{:key (:header item)}
+           [:> ui/Grid.Column
+            [how item]
+            ])]
 
 
 
-   [:> ui/Grid.Row
-    [:> ui/Grid.Column
-     [what]]]
+        [:> ui/Grid.Row
+         [:> ui/Grid.Column
+          [:div.anchor-offset {:id "what"}]
+          [what]
+          ]]
 
-   [:> ui/Grid.Row
-    [:> ui/Grid.Column
-     [faq]]
-    ]
+        [:> ui/Grid.Row
+         [:> ui/Grid.Column
+          [:div.anchor-offset {:id "faq"}]
+          [faq]
+          ]
+         ]
 
-   [:> ui/Grid.Row
-    [:> ui/Grid.Column
-     [contact]]
-    ]
+        [:> ui/Grid.Row
+         [:> ui/Grid.Column
+          [:div.anchor-offset {:id "contact"}]
+          [contact]]
+         ]
 
-   [:> ui/Grid.Row
-    [:> ui/Grid.Column
-     [footer]]
-    ]
+        [:> ui/Grid.Row {:id "footer"}
+         [:> ui/Grid.Column
+          [footer]]
+         ]
 
-   ])
+        ]])))
 
 
 
 (defn home []
-  [:div {:style {:height :500px}}
-   [layout]
+  [layout]
 
 
 
-   ;; [feature-card]
+  ;; [feature-card]
    ;; [:main.wrapper
    ;;  [:section.section.parallax.bg1 [:h1 "Such Adorableness"]]
 
@@ -360,7 +388,7 @@
    ;;  [:section.section.parallax.bg2 [:h1 "SO FWUFFY AWWW"]]
 
    ;;  [:div.hand]]
-   ])
+   )
 
 
 ;; define your app data so that it doesn't get over-written on reload

@@ -125,7 +125,7 @@ h2{
 
 .row {
 
-    min-height: 70vh !important;
+    min-height: 80vh !important;
 }
 
 ui.placeholder.segment .button, .ui.placeholder.segment .field, .ui.placeholder.segment textarea, .ui.placeholder.segment>.ui.input {
@@ -134,4 +134,41 @@ ui.placeholder.segment .button, .ui.placeholder.segment .field, .ui.placeholder.
 
 .ui.placeholder.segment textarea{
     min-height: 30vh !important;
+}
+
+
+/* for some reason i need to include both in order for footer to be smaller  */
+#nav-bar, #footer {
+    min-height: unset !important;
+
+}
+
+#footer .row {
+    min-height: unset !important;
+}
+
+#footer i{
+    color: #138fc2;
+}
+
+#footer i:hover{
+    background-color: #75cbe7;
+    color : white;
+
+}
+
+
+.anchor-offset {
+    display: hidden;
+    position: relative;
+    top: -12vh;
+}
+
+
+@media (max-width: 750px) {
+  .anchor-offset {
+    display: hidden;
+    position: relative;
+    top: -50vh;
+}
 }
