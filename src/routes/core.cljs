@@ -47,14 +47,18 @@
                             :on-click #(reset! state :contact)} "Contact"]]]]])))
 
 (defn parallax []
-  [:> ui/Segment
-   [:> ui/Image {:src "img/parallax-2.jpg"
+  [:div
+   [:> ui/Segment {:class-name "no-border segment-bg"
+                   :padded true}
 
-                 ;; ovde slika ljudi na stanici, blurovana i gore vidis ruku sa aplikacijom
-                 :centered true
-                 :fluid true
+    [:> ui/Container {:text-align :center}
 
-                 }]])
+     [:> ui/Image {:src "img/parallax-2.jpg"}]
+     ]
+
+
+    ]
+   ])
 
 
 (defn how [{:keys [header src desc]}]
@@ -318,7 +322,8 @@
                     :class-name :light-blue}
 
 
-        [:> ui/Grid.Row {:id :nav-bar}
+        [:> ui/Grid.Row {:id :nav-bar
+                         :class-name "no-padding"}
          [:> ui/Grid.Column
           [:div.anchor-offset {:id "home"}]
           [nav-bar ref]]]
@@ -330,7 +335,7 @@
 
 
         [:> ui/Grid.Row {:columns 3
-                         :class-name "light-blue padded-row"}
+                         :class-name "light-blue padded-row padded-top"}
          (for [item [{:header "Step 1"
                       :src "img/how1.png"
                       :desc "Contact us and about pricing plans and information about data that's needed in order to make system operational"}
@@ -376,19 +381,7 @@
 
 
 (defn home []
-  [layout]
-
-
-
-  ;; [feature-card]
-   ;; [:main.wrapper
-   ;;  [:section.section.parallax.bg1 [:h1 "Such Adorableness"]]
-
-   ;;  [:section.section.static [:h1 "Boring"]]
-   ;;  [:section.section.parallax.bg2 [:h1 "SO FWUFFY AWWW"]]
-
-   ;;  [:div.hand]]
-   )
+  [layout])
 
 
 ;; define your app data so that it doesn't get over-written on reload
