@@ -19,6 +19,7 @@
                      :pointing true
                      :secondary true
                      :stackable true
+
                      :size :massive}
          [:> ui/Menu.Menu {:position :left}
 
@@ -46,19 +47,61 @@
                             :active (= @state :contact)
                             :on-click #(reset! state :contact)} "Contact"]]]]])))
 
+
+(defn mobile-nav-bar [ref]
+  (let [state (r/atom nil)]
+    (fn []
+      [:div
+       [:> ui/Button.Group
+        [:> ui/Button {:disabled @state
+                       :on-click #(reset! state true)} "On"]
+        [:> ui/Button {:disabled (not @state)
+                       :on-click #(reset! state false)} "off"]
+        ]
+       [:> ui/Sidebar.Pushable {:as ui/Segment}
+        [:> ui/Sidebar {:width "thin",
+                        :visible @state,
+                        :vertical true,
+                        :on-hide #(reset! state false),
+                        :inverted true
+                        :icon "labeled"
+                        :animation "slide along"
+                        :as ui/Menu}
+         [:> ui/Menu.Item {:as "a"}
+          [:> ui/Icon {:name "home"}] "Home"]
+         [:> ui/Menu.Item {:as "a"}
+          [:> ui/Icon {:name "gamepad"}] "Game"]
+         [:> ui/Menu.Item {:as "a"}
+          [:> ui/Icon {:name "camera"}] "Channels"]]
+        [:> ui/Sidebar.Pusher {:dimmed @state}
+         [:> ui/Segment {:basic "basic"}
+          [:> ui/Header {:as "h3"} "Application Content"]
+          [:> ui/Image {:src
+                        "https://react.semantic-ui.com/images/wireframe/paragraph.png"}]]]]
+
+       ]
+)))
+
+
+
+
 (defn parallax []
   [:div
-   [:> ui/Segment {:class-name "no-border segment-bg"
-                   :padded true}
+   ;; [:> ui/Image {:src "img/stop.jpg"
+   ;;               :class-name "main-img"
+   ;;               }]
+   ;; [:h2 {:style {:position :absolute
+   ;;               :z-index 100
+   ;;               :background-color :red
+   ;;               :top 20
+   ;;               }} "hahah"]
+   ]
 
-    [:> ui/Container {:text-align :center}
-
-     [:> ui/Image {:src "img/parallax-2.jpg"}]
-     ]
 
 
-    ]
-   ])
+
+
+  )
 
 
 (defn how [{:keys [header src desc]}]
@@ -313,8 +356,7 @@
 
   )
 
-
-(defn layout []
+(defn grid []
   (let [ref (r/atom nil)]
     (fn []
       [:> ui/Ref {:inner-ref #(reset! ref %)}
@@ -323,10 +365,20 @@
 
 
         [:> ui/Grid.Row {:id :nav-bar
-                         :class-name "no-padding"}
+                         :class-name "no-padding"
+                         :only "computer tablet"}
          [:> ui/Grid.Column
           [:div.anchor-offset {:id "home"}]
           [nav-bar ref]]]
+
+        [:> ui/Grid.Row {;;:id :nav-bar
+                         ;;:class-name "no-padding"
+                         :only "mobile"}
+         [:> ui/Grid.Column
+          ;; [:div.anchor-offset {:id "home"}]
+          ;;[mobile-nav-bar ref]
+          [:h1 "mobileeeeeee"]
+          ]]
 
         [:> ui/Grid.Row
          [:> ui/Grid.Column
@@ -377,6 +429,54 @@
          ]
 
         ]])))
+
+
+(defn mobile [state]
+  (let [state (r/atom nil)]
+    (fn []
+      [:div
+       [:> ui/Button.Group
+        [:> ui/Button {:disabled @state
+                       :on-click #(reset! state true)} "On"]
+        [:> ui/Button {:disabled (not @state)
+                       :on-click #(reset! state false)} "Off"]
+        ]
+       [:> ui/Sidebar.Pushable {:as ui/Segment}
+        [:> ui/Sidebar {:width "thin",
+                        :visible @state,
+                        :vertical true,
+                        :on-hide #(reset! state false),
+                        :inverted true
+                        :icon "labeled"
+                        :animation "slide along"
+                        :as ui/Menu}
+         [:> ui/Menu.Item {:as "a"}
+          [:> ui/Icon {:name "home"}] "Home"]
+         [:> ui/Menu.Item {:as "a"}
+          [:> ui/Icon {:name "gamepad"}] "Game"]
+         [:> ui/Menu.Item {:as "a"}
+          [:> ui/Icon {:name "camera"}] "Channels"]]
+        [:> ui/Sidebar.Pusher {:dimmed @state}
+         [grid]
+
+
+         ]]])))
+
+
+(defn layout []
+  (let [mobile? (r/atom nil)]
+    (fn []
+      [:> ui/Responsive {:fire-on-mount true
+                         :on-update (fn [event view-obj]
+                                      (reset! mobile? (>= (.getWidth view-obj)
+                                                          (-> ui/Responsive
+                                                              .-onlyMobile
+                                                              .-maxWidth))))}
+
+       (if @mobile?
+         [grid]
+         [mobile])
+       ])))
 
 
 

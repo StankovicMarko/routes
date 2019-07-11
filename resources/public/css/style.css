@@ -191,3 +191,10 @@ ui.placeholder.segment .button, .ui.placeholder.segment .field, .ui.placeholder.
     padding-bottom : unset !important;
 
 }
+
+.main-img {
+
+    filter: blur(4px);
+    transform: scale(1.1);
+
+}
