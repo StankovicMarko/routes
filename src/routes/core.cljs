@@ -219,7 +219,6 @@
 (defn faq []
   (let [active? (r/atom nil)]
     (fn []
-      (println active?)
       [:> ui/Container {:text true
                         :class-name "light-blue gray-text"
                         :text-align :left}
@@ -468,10 +467,10 @@
     (fn []
       [:> ui/Responsive {:fire-on-mount true
                          :on-update (fn [event view-obj]
-                                      (reset! mobile? (>= (.getWidth view-obj)
-                                                          (-> ui/Responsive
-                                                              .-onlyMobile
-                                                              .-maxWidth))))}
+                                      (reset! mobile?
+                                              (>= (.getWidth view-obj)
+                                                  (goog-obj/getValueByKeys ui/Responsive #js ["onlyMobile"
+                                                                                              "maxWidth"]))))}
 
        (if @mobile?
          [grid]
