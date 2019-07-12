@@ -216,4 +216,12 @@ ui.placeholder.segment .button, .ui.placeholder.segment .field, .ui.placeholder.
     margin:unset;
 }
 
+.main-header{
+    font-size: 4rem !important;
+}
+
+.fix-jump-bug{
+    transform: none !important;
+}
+
 }

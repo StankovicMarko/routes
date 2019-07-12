@@ -325,96 +325,97 @@
 
   )
 
-(defn grid []
-  (let [ref (r/atom nil)]
+(defn grid [ref]
+  (let [;;ref (r/atom nil)
+        ]
     (fn []
-      [:> ui/Ref {:inner-ref #(reset! ref %)}
-       [:> ui/Grid {:stackable true
-                    :class-name :light-blue}
+      [:> ui/Grid {:stackable true
+                   :class-name :light-blue}
 
 
-        ;; [:> ui/Grid.Row {:id :nav-bar
-        ;;                  :class-name "no-padding"
-        ;;                  :only "computer tablet"}
-        ;;  [:> ui/Grid.Column
-        ;;   [:div.anchor-offset {:id "home"}]
-        ;;   [nav-bar ref]]]
+       [:> ui/Grid.Row {:id :nav-bar
+                        :class-name "no-padding"
+                        :only "computer tablet"}
+        [:> ui/Grid.Column
+         [:div.anchor-offset {:id "home"}]
+         [nav-bar ref]]]
 
-        [:> ui/Grid.Row {:columns 2
-                         ;;:id :nav-bar
-                         :class-name "segment-bg"
-                         ;;:only "mobile"
-                         }
-         [:> ui/Grid.Column
-          ;; [:div.anchor-offset {:id "home"}]
-          ;;[mobile-nav-bar ref]
-          [:> ui/Segment {:class-name "no-border transparent-bg"}
-           [:> ui/Container {:text true
-                             :text-align :center}
-            [:> ui/Header {:as :h1
-                           :inverted true} "We service bus companies"]
-            [:p "Your clients don't know where the bus is and when it's coming?"]
-            [:p "Your clients can't buy ticket onine?"]
-            [:p "Your company wants to lower expenses and fuel consumption?"]
-            [:p "You've come to the right place."]]]]
+       [:> ui/Grid.Row {:columns 2
+                        ;;:id :nav-bar
+                        :class-name "segment-bg"
+                        ;;:only "mobile"
+                        }
+        [:> ui/Grid.Column
+         ;; [:div.anchor-offset {:id "home"}]
+         ;;[mobile-nav-bar ref]
+         [:> ui/Segment {:class-name "no-border transparent-bg"}
+          [:> ui/Container {:text true
+                            :text-align :center}
+           [:> ui/Header {:as :h1
+                          :class-name "main-header"
+                          :inverted true} "We help bus companies"]
+           [:p "Your clients don't know where the bus is and when it's coming?"]
+           [:p "Your clients can't buy ticket onine?"]
+           [:p "Your company wants to lower expenses and fuel consumption?"]
+           [:p "You've come to the right place."]]]]
 
-         [:> ui/Grid.Column
-          [:> ui/Image {:src "img/hand.png"
-                        :fluid true}]
-          ]]
+        [:> ui/Grid.Column
+         [:> ui/Image {:src "img/hand.png"
+                       :fluid true}]
+         ]]
 
-        ;; [:> ui/Grid.Row
-        ;;  [:> ui/Grid.Column
-        ;;   [parallax]
-        ;;   [:div.anchor-offset {:id "how"}]]]
-
-
-        [:> ui/Grid.Row {:columns 3
-                         :class-name "light-blue padded-row padded-top"}
-         (for [item [{:header "Step 1"
-                      :src "img/how1.png"
-                      :desc "Contact us and about pricing plans and information about data that's needed in order to make system operational"}
-                     {:header "Step 2"
-                      :src "img/how2.png"
-                      :desc "We setup online services and mobile apps with data you provided"}
-                     {:header "Step 3"
-                      :src "img/how3.png"
-                      :desc "You enjoy full control over the system while you customers have many perks one of which is knowing when bus is coming"}]]
-           ^{:key (:header item)}
-           [:> ui/Grid.Column
-            [how item]
-            ])]
+       ;; [:> ui/Grid.Row
+       ;;  [:> ui/Grid.Column
+       ;;   [parallax]
+       ;;   [:div.anchor-offset {:id "how"}]]]
 
 
+       [:> ui/Grid.Row {:columns 3
+                        :class-name "light-blue padded-row padded-top"}
+        (for [item [{:header "Step 1"
+                     :src "img/how1.png"
+                     :desc "Contact us and about pricing plans and information about data that's needed in order to make system operational"}
+                    {:header "Step 2"
+                     :src "img/how2.png"
+                     :desc "We setup online services and mobile apps with data you provided"}
+                    {:header "Step 3"
+                     :src "img/how3.png"
+                     :desc "You enjoy full control over the system while you customers have many perks one of which is knowing when bus is coming"}]]
+          ^{:key (:header item)}
+          [:> ui/Grid.Column
+           [how item]
+           ])]
 
-        [:> ui/Grid.Row
-         [:> ui/Grid.Column
-          [:div.anchor-offset {:id "what"}]
-          [what]
-          ]]
 
-        [:> ui/Grid.Row
-         [:> ui/Grid.Column
-          [:div.anchor-offset {:id "faq"}]
-          [faq]
-          ]
+
+       [:> ui/Grid.Row
+        [:> ui/Grid.Column
+         [:div.anchor-offset {:id "what"}]
+         [what]
+         ]]
+
+       [:> ui/Grid.Row
+        [:> ui/Grid.Column
+         [:div.anchor-offset {:id "faq"}]
+         [faq]
          ]
+        ]
 
-        [:> ui/Grid.Row
-         [:> ui/Grid.Column
-          [:div.anchor-offset {:id "contact"}]
-          [contact]]
-         ]
+       [:> ui/Grid.Row
+        [:> ui/Grid.Column
+         [:div.anchor-offset {:id "contact"}]
+         [contact]]
+        ]
 
-        [:> ui/Grid.Row {:id "footer"}
-         [:> ui/Grid.Column
-          [footer]]
-         ]
+       [:> ui/Grid.Row {:id "footer"}
+        [:> ui/Grid.Column
+         [footer]]
+        ]
 
-        ]])))
+       ])))
 
 
-(defn mobile [state]
+(defn mobile [ref]
   (let [show? (r/atom nil)
         active-item (r/atom nil)]
     (fn []
@@ -474,14 +475,15 @@
 
          ]
         [:> ui/Sidebar.Pusher {:dimmed @show?}
-         [grid]
+         [grid ref]
 
 
          ]]])))
 
 
 (defn layout []
-  (let [mobile? (r/atom nil)]
+  (let [mobile? (r/atom nil)
+        ref (r/atom nil)]
     (fn []
       [:> ui/Responsive {:fire-on-mount true
                          :on-update (fn [event view-obj]
@@ -489,14 +491,14 @@
                                               (>= (.getWidth view-obj)
                                                   (goog-obj/getValueByKeys ui/Responsive #js ["onlyMobile"
                                                                                               "maxWidth"]))))}
-
+       [:> ui/Ref {:inner-ref #(reset! ref %)}
 
         ;; (if @mobile?
-       ;; [grid]
-       [mobile]
-       ;; )
-
-       ;; mobilna verzija ima samo ruku i sliku aplikacije
+        ;;   [grid ref]
+          [mobile ref]
+          ;; )
+        ]
+       ;;(done) mobilna verzija ima samo ruku i sliku aplikacije
        ;; mobilna da bude float i da se skroluje menu
        ;; grid ima blur slike ljudi i ruku ispred toga
        ])))
