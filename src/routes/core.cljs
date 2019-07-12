@@ -420,20 +420,21 @@
         active-item (r/atom nil)]
     (fn []
       [:div
-       [:> ui/Segment {:inverted true
-                       :color :blue
-                       :clearing true}
-        (if @show?
-          [:> ui/Button {:inverted true
-                         :floated :left
-                         :on-click #(reset! show? false)}
-           [:> ui/Icon {:name "x"}]]
-          [:> ui/Button {:inverted true
-                         :floated :left
-                         :on-click #(reset! show? true)}
-           [:> ui/Icon {:name "content"}]])
-        [:> ui/Header {:as :h1
-                       :floated :right} "Bus Routes"]]
+       [:> ui/Sticky {:context @ref}
+        [:> ui/Segment {:inverted true
+                        :color :blue
+                        :clearing true}
+         (if @show?
+           [:> ui/Button {:inverted true
+                          :floated :left
+                          :on-click #(reset! show? false)}
+            [:> ui/Icon {:name "x"}]]
+           [:> ui/Button {:inverted true
+                          :floated :left
+                          :on-click #(reset! show? true)}
+            [:> ui/Icon {:name "content"}]])
+         [:> ui/Header {:as :h1
+                        :floated :right} "Bus Routes"]]]
 
 
        [:> ui/Sidebar.Pushable {:as ui/Segment}
