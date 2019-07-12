@@ -19,7 +19,6 @@
                      :pointing true
                      :secondary true
                      :stackable true
-
                      :size :massive}
          [:> ui/Menu.Menu {:position :left}
 
@@ -46,41 +45,6 @@
           [:> ui/Menu.Item {:href "#contact"
                             :active (= @state :contact)
                             :on-click #(reset! state :contact)} "Contact"]]]]])))
-
-
-(defn mobile-nav-bar [ref]
-  (let [state (r/atom nil)]
-    (fn []
-      [:div
-       [:> ui/Button.Group
-        [:> ui/Button {:disabled @state
-                       :on-click #(reset! state true)} "On"]
-        [:> ui/Button {:disabled (not @state)
-                       :on-click #(reset! state false)} "off"]
-        ]
-       [:> ui/Sidebar.Pushable {:as ui/Segment}
-        [:> ui/Sidebar {:width "thin",
-                        :visible @state,
-                        :vertical true,
-                        :on-hide #(reset! state false),
-                        :inverted true
-                        :icon "labeled"
-                        :animation "slide along"
-                        :as ui/Menu}
-         [:> ui/Menu.Item {:as "a"}
-          [:> ui/Icon {:name "home"}] "Home"]
-         [:> ui/Menu.Item {:as "a"}
-          [:> ui/Icon {:name "gamepad"}] "Game"]
-         [:> ui/Menu.Item {:as "a"}
-          [:> ui/Icon {:name "camera"}] "Channels"]]
-        [:> ui/Sidebar.Pusher {:dimmed @state}
-         [:> ui/Segment {:basic "basic"}
-          [:> ui/Header {:as "h3"} "Application Content"]
-          [:> ui/Image {:src
-                        "https://react.semantic-ui.com/images/wireframe/paragraph.png"}]]]]
-
-       ]
-)))
 
 
 
@@ -363,16 +327,17 @@
                     :class-name :light-blue}
 
 
-        [:> ui/Grid.Row {:id :nav-bar
-                         :class-name "no-padding"
-                         :only "computer tablet"}
-         [:> ui/Grid.Column
-          [:div.anchor-offset {:id "home"}]
-          [nav-bar ref]]]
+        ;; [:> ui/Grid.Row {:id :nav-bar
+        ;;                  :class-name "no-padding"
+        ;;                  :only "computer tablet"}
+        ;;  [:> ui/Grid.Column
+        ;;   [:div.anchor-offset {:id "home"}]
+        ;;   [nav-bar ref]]]
 
         [:> ui/Grid.Row {;;:id :nav-bar
                          ;;:class-name "no-padding"
-                         :only "mobile"}
+                         ;;:only "mobile"
+                         }
          [:> ui/Grid.Column
           ;; [:div.anchor-offset {:id "home"}]
           ;;[mobile-nav-bar ref]
@@ -431,31 +396,62 @@
 
 
 (defn mobile [state]
-  (let [state (r/atom nil)]
+  (let [show? (r/atom nil)
+        active-item (r/atom nil)]
     (fn []
       [:div
-       [:> ui/Button.Group
-        [:> ui/Button {:disabled @state
-                       :on-click #(reset! state true)} "On"]
-        [:> ui/Button {:disabled (not @state)
-                       :on-click #(reset! state false)} "Off"]
+       [:> ui/Segment {:inverted true
+                       :color :blue}
+        (if @show?
+          [:> ui/Button {:inverted true
+                         :on-click #(reset! show? false)}
+           [:> ui/Icon {:name "x"}]]
+          [:> ui/Button {:inverted true
+
+                         :on-click #(reset! show? true)}
+           [:> ui/Icon {:name "content"}]])
         ]
+
+
        [:> ui/Sidebar.Pushable {:as ui/Segment}
         [:> ui/Sidebar {:width "thin",
-                        :visible @state,
+                        :visible @show?,
                         :vertical true,
-                        :on-hide #(reset! state false),
+                        :on-hide #(reset! show? false),
                         :inverted true
+                        :color :blue
                         :icon "labeled"
                         :animation "slide along"
                         :as ui/Menu}
-         [:> ui/Menu.Item {:as "a"}
+
+         [:> ui/Menu.Item {:as "a"
+                           :href "#home"
+                           :active (= @active-item :home)
+                           :on-click #(reset! active-item :home)}
           [:> ui/Icon {:name "home"}] "Home"]
-         [:> ui/Menu.Item {:as "a"}
-          [:> ui/Icon {:name "gamepad"}] "Game"]
-         [:> ui/Menu.Item {:as "a"}
-          [:> ui/Icon {:name "camera"}] "Channels"]]
-        [:> ui/Sidebar.Pusher {:dimmed @state}
+         [:> ui/Menu.Item {:as "a"
+                           :href "#how"
+                           :active (= @active-item :how)
+                           :on-click #(reset! active-item :how)}
+          [:> ui/Icon {:name "clone "}] "How it works"]
+         [:> ui/Menu.Item {:as "a"
+                           :href "#what"
+                           :active (= @active-item :what)
+                           :on-click #(reset! active-item :what)}
+          [:> ui/Icon {:name "industry"}] "What we offer"]
+         [:> ui/Menu.Item {:as "a"
+                           :href "#faq"
+                           :active (= @active-item :faq)
+                           :on-click #(reset! active-item :faq)}
+          [:> ui/Icon {:name "question"}] "FAQ"]
+         [:> ui/Menu.Item {:as "a"
+                           :href "#contact"
+                           :active (= @active-item :contact)
+                           :on-click #(reset! active-item :contact)}
+          [:> ui/Icon {:name "envelope"}] "Contact Us"]
+
+         ]
+        [:> ui/Sidebar.Pusher {:dimmed @show?}
          [grid]
 
 
@@ -472,9 +468,14 @@
                                                   (goog-obj/getValueByKeys ui/Responsive #js ["onlyMobile"
                                                                                               "maxWidth"]))))}
 
-       (if @mobile?
-         [grid]
-         [mobile])
+       [mobile]
+       ;; (if @mobile?
+       ;;   [grid]
+       ;;   [mobile])
+
+       ;; mobilna verzija ima samo ruku i sliku aplikacije
+       ;; mobilna da bude float i da se skroluje menu
+       ;; grid ima blur slike ljudi i ruku ispred toga
        ])))
 
 
