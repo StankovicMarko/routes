@@ -10,7 +10,7 @@
 
 
 (defn nav-bar [ref]
-  (let [state (r/atom :home)]
+  (let [active-item (r/atom :home)]
     (fn []
       [:> ui/Sticky {:context @ref}
        [:> ui/Segment {:inverted true
@@ -26,25 +26,31 @@
 
          [:> ui/Menu.Menu {:position :right}
 
-          [:> ui/Menu.Item {:href "#home"
-                            :active (= @state :home)
-                            :on-click #(reset! state :home)} "Home"]
-
-          [:> ui/Menu.Item {:href "#how"
-                            :active (= @state :how)
-                            :on-click #(reset! state :how)} "How it works"]
-
-          [:> ui/Menu.Item {:href "#what"
-                            :active (= @state :what)
-                            :on-click #(reset! state :what)} "What we offer"]
-
-          [:> ui/Menu.Item {:href "#faq"
-                            :active (= @state :faq)
-                            :on-click #(reset! state :faq)} "FAQ"]
-
-          [:> ui/Menu.Item {:href "#contact"
-                            :active (= @state :contact)
-                            :on-click #(reset! state :contact)} "Contact"]]]]])))
+          [:> ui/Menu.Item {:as "a"
+                            :href "#home"
+                            :active (= @active-item :home)
+                            :on-click #(reset! active-item :home)}
+           [:> ui/Icon {:name "home"}] "Home"]
+          [:> ui/Menu.Item {:as "a"
+                            :href "#how"
+                            :active (= @active-item :how)
+                            :on-click #(reset! active-item :how)}
+           [:> ui/Icon {:name "clone "}] "How it works"]
+          [:> ui/Menu.Item {:as "a"
+                            :href "#what"
+                            :active (= @active-item :what)
+                            :on-click #(reset! active-item :what)}
+           [:> ui/Icon {:name "industry"}] "What we offer"]
+          [:> ui/Menu.Item {:as "a"
+                            :href "#faq"
+                            :active (= @active-item :faq)
+                            :on-click #(reset! active-item :faq)}
+           [:> ui/Icon {:name "question"}] "FAQ"]
+          [:> ui/Menu.Item {:as "a"
+                            :href "#contact"
+                            :active (= @active-item :contact)
+                            :on-click #(reset! active-item :contact)}
+           [:> ui/Icon {:name "envelope"}] "Contact Us"]]]]])))
 
 
 
@@ -334,20 +340,33 @@
         ;;   [:div.anchor-offset {:id "home"}]
         ;;   [nav-bar ref]]]
 
-        [:> ui/Grid.Row {;;:id :nav-bar
-                         ;;:class-name "no-padding"
+        [:> ui/Grid.Row {:columns 2
+                         ;;:id :nav-bar
+                         :class-name "segment-bg"
                          ;;:only "mobile"
                          }
          [:> ui/Grid.Column
           ;; [:div.anchor-offset {:id "home"}]
           ;;[mobile-nav-bar ref]
-          [:h1 "mobileeeeeee"]
+          [:> ui/Segment {:class-name "no-border transparent-bg"}
+           [:> ui/Container {:text true
+                             :text-align :center}
+            [:> ui/Header {:as :h1
+                           :inverted true} "We service bus companies"]
+            [:p "Your clients don't know where the bus is and when it's coming?"]
+            [:p "Your clients can't buy ticket onine?"]
+            [:p "Your company wants to lower expenses and fuel consumption?"]
+            [:p "You've come to the right place."]]]]
+
+         [:> ui/Grid.Column
+          [:> ui/Image {:src "img/hand.png"
+                        :fluid true}]
           ]]
 
-        [:> ui/Grid.Row
-         [:> ui/Grid.Column
-          [parallax]
-          [:div.anchor-offset {:id "how"}]]]
+        ;; [:> ui/Grid.Row
+        ;;  [:> ui/Grid.Column
+        ;;   [parallax]
+        ;;   [:div.anchor-offset {:id "how"}]]]
 
 
         [:> ui/Grid.Row {:columns 3
@@ -401,16 +420,19 @@
     (fn []
       [:div
        [:> ui/Segment {:inverted true
-                       :color :blue}
+                       :color :blue
+                       :clearing true}
         (if @show?
           [:> ui/Button {:inverted true
+                         :floated :left
                          :on-click #(reset! show? false)}
            [:> ui/Icon {:name "x"}]]
           [:> ui/Button {:inverted true
-
+                         :floated :left
                          :on-click #(reset! show? true)}
            [:> ui/Icon {:name "content"}]])
-        ]
+        [:> ui/Header {:as :h1
+                       :floated :right} "Bus Routes"]]
 
 
        [:> ui/Sidebar.Pushable {:as ui/Segment}
@@ -468,10 +490,11 @@
                                                   (goog-obj/getValueByKeys ui/Responsive #js ["onlyMobile"
                                                                                               "maxWidth"]))))}
 
+
+        ;; (if @mobile?
+       ;; [grid]
        [mobile]
-       ;; (if @mobile?
-       ;;   [grid]
-       ;;   [mobile])
+       ;; )
 
        ;; mobilna verzija ima samo ruku i sliku aplikacije
        ;; mobilna da bude float i da se skroluje menu
