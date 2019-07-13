@@ -170,20 +170,7 @@ ui.placeholder.segment .button, .ui.placeholder.segment .field, .ui.placeholder.
 }
 
 
-@media (max-width: 750px) {
-  .anchor-offset {
-    display: hidden;
-    position: relative;
-    top: -40vh;
-  }
 
-.padded-row{
-
-    padding-left: 5% !important;
-    padding-right: 5% !important;
-}
-
-}
 
 
 .no-padding {
@@ -192,12 +179,26 @@ ui.placeholder.segment .button, .ui.placeholder.segment .field, .ui.placeholder.
 
 }
 
-/* .main-img { */
+.main-img {
 
-/*     filter: blur(4px); */
-/*     transform: scale(1.1); */
+    filter: blur(4px);
+    transform: scale(1.1);
 
-/* } */
+}
+
+
+.img-over {
+    position:absolute;
+    top: 125px;
+    right: 150px;
+    width: 325px;
+    height: 400px;
+    background-image: url("../img/hand.png");
+    background-position:center;
+    background-repeat:no-repeat;
+    background-size:cover;
+
+}
 
 
 @media only screen and (max-width: 767px){
@@ -223,5 +224,37 @@ ui.placeholder.segment .button, .ui.placeholder.segment .field, .ui.placeholder.
 .fix-jump-bug{
     transform: none !important;
 }
+
+.anchor-offset {
+    display: hidden;
+    position: relative;
+    top: -9vh;
+  }
+
+.padded-row{
+
+    padding-left: 5% !important;
+    padding-right: 5% !important;
+}
+
+
+}
+
+
+/* Page Context */
+.pushable:not(body) {
+  transform: none;
+}
+
+.pushable:not(body) > .ui.sidebar,
+.pushable:not(body) > .fixed {
+    top: 65px;
+    position: fixed;
+}
+
+
+@media only screen and (min-width: 768px) and (max-width: 920px) {
+.right.menu {
+    font-size: 1rem;
 
 }

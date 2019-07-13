@@ -6,8 +6,7 @@
    [routes.abc :as abc]
    [cljsjs.semantic-ui-react :as ui]))
 
-
-
+(def pc? (r/atom nil))
 
 (defn nav-bar [ref]
   (let [active-item (r/atom :home)]
@@ -57,14 +56,26 @@
 
 (defn parallax []
   [:div
-   ;; [:> ui/Image {:src "img/stop.jpg"
-   ;;               :class-name "main-img"
-   ;;               }]
-   ;; [:h2 {:style {:position :absolute
-   ;;               :z-index 100
-   ;;               :background-color :red
-   ;;               :top 20
-   ;;               }} "hahah"]
+   [:> ui/Image {:src "img/stop.jpg"
+                 :class-name "main-img"
+                 }]
+   [:div {:style {:position :absolute
+                  :width :300px
+                  :height :300px
+                  :color :white
+                  :top :100px
+                  :left :275px
+
+
+                  }}
+    [:h1 {:style {:font-size :50px}} "We help bus companies"]
+    ]
+   [:div.img-over
+    ;; [:img {:src "img/hand.png"
+
+    ;;                  }]
+    ]
+
    ]
 
 
@@ -76,7 +87,7 @@
 
 (defn how [{:keys [header src desc]}]
   [:> ui/Card {:centered true
-               :className "card-def light-blue"
+               :class-name "card-def light-blue"
                :fluid true}
    [:> ui/Card.Content {:class-name :no-top-border}
     [:div {:style {:width :70%
@@ -333,45 +344,56 @@
                    :class-name :light-blue}
 
 
-       [:> ui/Grid.Row {:id :nav-bar
-                        :class-name "no-padding"
-                        :only "computer tablet"}
-        [:> ui/Grid.Column
-         [:div.anchor-offset {:id "home"}]
-         [nav-bar ref]]]
+       (when @pc?
+         [:> ui/Grid.Row {:id :nav-bar
+                          :class-name "no-padding"
+                          :only "computer tablet"}
 
-       [:> ui/Grid.Row {:columns 2
-                        ;;:id :nav-bar
-                        :class-name "segment-bg"
-                        ;;:only "mobile"
-                        }
-        [:> ui/Grid.Column
-         ;; [:div.anchor-offset {:id "home"}]
-         ;;[mobile-nav-bar ref]
-         [:> ui/Segment {:class-name "no-border transparent-bg"}
-          [:> ui/Container {:text true
-                            :text-align :center}
-           [:> ui/Header {:as :h1
-                          :class-name "main-header"
-                          :inverted true} "We help bus companies"]
-           [:p "Your clients don't know where the bus is and when it's coming?"]
-           [:p "Your clients can't buy ticket onine?"]
-           [:p "Your company wants to lower expenses and fuel consumption?"]
-           [:p "You've come to the right place."]]]]
+          [:> ui/Grid.Column
+           [:div.anchor-offset {:id "home"}]
+           [nav-bar ref]]])
 
-        [:> ui/Grid.Column
-         [:> ui/Image {:src "img/hand.png"
-                       :fluid true}]
-         ]]
+       (when (not @pc?)
+         [:> ui/Grid.Row {:columns 2
+                          ;;:id :nav-bar
+                          :class-name "segment-bg"
+                          :only "mobile"
+                          }
 
-       ;; [:> ui/Grid.Row
-       ;;  [:> ui/Grid.Column
-       ;;   [parallax]
-       ;;   [:div.anchor-offset {:id "how"}]]]
+          ;; mobile home
+          [:> ui/Grid.Column
+           [:div.anchor-offset {:id "home"}]
+           [:> ui/Segment {:class-name "no-border transparent-bg"}
+            [:> ui/Container {:text true
+                              :text-align :center}
+
+             [:> ui/Header {:as :h1
+                            :class-name "main-header"
+                            :inverted true} "We help bus companies"]
+             [:p "Your clients don't know where the bus is and when it's coming?"]
+             [:p "Your clients can't buy ticket onine?"]
+             [:p "Your company wants to lower expenses and fuel consumption?"]
+             [:p "You've come to the right place."]
+             ]]]
+
+          [:> ui/Grid.Column
+
+           [:> ui/Image {:src "img/hand.png"
+                         :fluid true}]
+
+           ]])
+
+
+       (when @pc?
+         [:> ui/Grid.Row {:only "tablet computer"}
+          [:> ui/Grid.Column
+           [parallax]
+           [:div.anchor-offset {:id "how"}]]])
 
 
        [:> ui/Grid.Row {:columns 3
                         :class-name "light-blue padded-row padded-top"}
+        [:div.anchor-offset {:id "how"}]
         (for [item [{:header "Step 1"
                      :src "img/how1.png"
                      :desc "Contact us and about pricing plans and information about data that's needed in order to make system operational"}
@@ -475,7 +497,9 @@
           [:> ui/Icon {:name "envelope"}] "Contact Us"]
 
          ]
-        [:> ui/Sidebar.Pusher {:dimmed @show?}
+
+        [:> ui/Sidebar.Pusher {:dimmed @show?
+                               }
          [grid ref]
 
 
@@ -483,24 +507,26 @@
 
 
 (defn layout []
-  (let [mobile? (r/atom nil)
+  (let [
         ref (r/atom nil)]
     (fn []
       [:> ui/Responsive {:fire-on-mount true
                          :on-update (fn [event view-obj]
-                                      (reset! mobile?
+                                      (reset! pc?
                                               (>= (.getWidth view-obj)
                                                   (goog-obj/getValueByKeys ui/Responsive #js ["onlyMobile"
                                                                                               "maxWidth"]))))}
        [:> ui/Ref {:inner-ref #(reset! ref %)}
 
-        ;; (if @mobile?
-        ;;   [grid ref]
+
+        (if @pc?
+          [grid ref]
           [mobile ref]
-          ;; )
+          )
         ]
+
        ;;(done) mobilna verzija ima samo ruku i sliku aplikacije
-       ;; mobilna da bude float i da se skroluje menu
+       ;; (done) mobilna da bude float i da se skroluje menu
        ;; grid ima blur slike ljudi i ruku ispred toga
        ])))
 
