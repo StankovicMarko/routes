@@ -56,25 +56,36 @@
 
 (defn parallax []
   [:div
-   [:> ui/Image {:src "img/stop.jpg"
-                 :class-name "main-img"
-                 }]
-   [:div {:style {:position :absolute
-                  :width :300px
-                  :height :300px
-                  :color :white
-                  :top :100px
-                  :left :275px
+   [:> ui/Image {:src "img/blur-stop.jpg"}]
+   [:div {:style {:positon :relative}}
+
+    [:div {:style {:position :absolute
+                   :width :40%
+                   :height :30vw
+                   :color :white
+                   :top :10%
+                   :right :50%
 
 
-                  }}
-    [:h1 {:style {:font-size :50px}} "We help bus companies"]
-    ]
-   [:div.img-over
-    ;; [:img {:src "img/hand.png"
+                   ;;:background-color "rgba(117, 203, 231, 0.7)"
+                   :background-color "rgba(33, 133, 208, 0.7)"
 
-    ;;                  }]
-    ]
+                   :border-radius :10px
+                   :font-size :1.4vw
+                   :padding :20px
+                              }}
+     [:h1 {:style { :font-size :3vw}} "We help bus companies"]
+     [:p "Your clients don't know where the bus is and when it's coming?"]
+     [:p "Your clients can't buy ticket onine?"]
+     [:p "Your company wants to lower expenses and fuel consumption?"]
+     [:p "You've come to the right place."]
+
+     ]
+    [:div.img-over
+     ;; [:img {:src "img/hand.png"
+
+     ;;                  }]
+     ]]
 
    ]
 
@@ -525,9 +536,7 @@
           )
         ]
 
-       ;;(done) mobilna verzija ima samo ruku i sliku aplikacije
-       ;; (done) mobilna da bude float i da se skroluje menu
-       ;; grid ima blur slike ljudi i ruku ispred toga
+
        ])))
 
 
@@ -571,7 +580,14 @@
 
 ;; plan
 ;; 1. rekreiraj sajt koristice semantic ui
+;;(done) mobilna verzija ima samo ruku i sliku aplikacije
+;; (done) mobilna da bude float i da se skroluje menu
+;; (done) grid ima blur slike ljudi i ruku ispred toga
+
 
 ;; 1. add re-frame
+;; refactor
+;; add effects when what menu is changing
+;; figure out how contact us will work
 ;; 2. try to recreate the site to be as lean as possible but to retain the look and feel i already trimmed it
 ;;
