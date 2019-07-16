@@ -562,8 +562,7 @@
 
 
 (defn layout []
-  (let [
-        ref (r/atom nil)]
+  (let [ref (r/atom nil)]
     (fn []
       [:> ui/Responsive {:fire-on-mount true
                          :on-update (fn [event view-obj]
@@ -627,11 +626,14 @@
 ;;(done) mobilna verzija ima samo ruku i sliku aplikacije
 ;; (done) mobilna da bude float i da se skroluje menu
 ;; (done) grid ima blur slike ljudi i ruku ispred toga
-
+;; (done) figure out how contact us will work
+;; (done) 2. try to recreate the site to be as lean as possible but to retain the look and feel i already trimmed it
 
 ;; 1. add re-frame
 ;; refactor
-;; add effects when what menu is changing
-;; figure out how contact us will work
-;; 2. try to recreate the site to be as lean as possible but to retain the look and feel i already trimmed it
+
+;; fix bugs (glitchy menu, disappearing sidebar on mozila, visible padding of home screen (then menu glitches)
+
+;; add effects when what menu is changing in what we offer
+
 ;;
