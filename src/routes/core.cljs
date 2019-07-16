@@ -324,50 +324,42 @@
            [:> ui/Form.Group {:widths "equal"}
             [:> ui/Form.Input {:placeholder "Your name"
                                :fluid true
-                               :on-change (fn [e this]
-                                            (swap! form-data assoc :name (goog-obj/get this #js ["value"])))
-                               :value (:name @form-data)
-                               :name "name"}]
+                               :name "name"
+                               :required true}]
             [:> ui/Form.Input {:placeholder "E-mail address",
                                :fluid true
-                               :on-change (fn [e this]
-                                            (swap! form-data assoc :email (goog-obj/get this #js ["value"])))
-                               :value (:email @form-data)
-                               :name "email"}]]
+                               :name "email"
+                               :required true}]]
            [:> ui/Form.Group {:inline true
                               :widths "equal"}
             [:> ui/Form.Field
              [:> ui/Checkbox {:label "Are you representative of a company?"
-                              :on-change (fn [e this] (do
-                                                        (reset! company? (goog-obj/get this #js ["checked"]))
-                                                        (swap! form-data dissoc :website)))}]]]
+                              :on-change (fn [e this]
+                                           (do
+                                             (reset! company? (goog-obj/get this #js ["checked"]))
+                                             (swap! form-data dissoc :website)))}]]]
            [:> ui/Form.Group {:widths "equal"}
+
             (when @company?
               [:> ui/Form.Input {:placeholder "Company website"
                                  :fluid true
-                                 :on-change (fn [e this]
-                                              (swap! form-data assoc :website (goog-obj/get this #js ["value"])))
-                                 :value (:website @form-data)
-                                 :name "website"}])]
+                                 :name "website"
+                                 :required true}])]
            [:> ui/Form.Group {:widths "equal"}
             [:> ui/Form.Input {:placeholder "Message topic"
                                :fluid true
-                               :on-change (fn [e this]
-                                            (swap! form-data assoc :topic (goog-obj/get this #js ["value"])))
-                               :value (:topic @form-data)
-                               :name "topic"}]]
+                               :name "topic"
+                               :required true}]]
            [:> ui/Form.TextArea {:placeholder "Your message"
-                                 :on-change (fn [e this]
-                                              (swap! form-data assoc :message (goog-obj/get this #js ["value"])))
-                                 :value (:message @form-data)
-                                 :name "message"}]
+                                 :name "message"
+                                 :required true}]
            [:> ui/Form.Checkbox {:label "I want to be informed about new features and information"
-                                 :on-change (fn [e this] (swap! form-data assoc :gdpr (goog-obj/get this #js ["checked"])))}]
+                                 :on-change #(swap! form-data assoc :gdpr (not (:gdpr @form-data)))
+                                 :name "gdpr"
+                                 :value (:gdpr @form-data)}]
+
            [:> ui/Form.Button {:inverted true
-                               :type "submit"} "Submit"]
-
-
-           ]]]]])))
+                               :type "submit"} "Submit"]]]]]])))
 
 
 

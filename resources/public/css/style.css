@@ -131,6 +131,7 @@ h2{
 .row {
 
     min-height: 73vh !important;
+    /* padding-top: unset !important; */
 }
 
 ui.placeholder.segment .button, .ui.placeholder.segment .field, .ui.placeholder.segment textarea, .ui.placeholder.segment>.ui.input {
