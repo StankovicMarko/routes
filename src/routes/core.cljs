@@ -4,7 +4,8 @@
    [goog.object :as goog-obj]
    [reagent.core :as r]
    [routes.abc :as abc]
-   [cljsjs.semantic-ui-react :as ui]))
+   [cljsjs.semantic-ui-react :as ui]
+   [clojure.spec.alpha :as s]))
 
 (def pc? (r/atom nil))
 
@@ -266,10 +267,48 @@
 
 
 
+
+(s/def ::name string?)
+
+(def email-regex #"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,63}$")
+(s/def ::email-type (s/and string? #(re-matches email-regex %)))
+(s/def ::email ::email-type)
+
+(s/def ::website string?)
+(s/def ::topic string?)
+(s/def ::message string?)
+
+(s/def ::gdpr boolean?)
+
+(s/def ::contact-form (s/keys :req [::name ::email ::topic ::message ::gdpr]
+                              :opt [::website]))
+(def msg {::name "marko",
+          ::email "stane-sm@hotmail.com",
+          ::topic "topic",
+          ::message "message"
+          ::gdpr true})
+
+(def scn {::gdpr false,
+          ::name "a",
+          ::email "b",
+          ::topic "c",
+          ::message "daaaaaaa"})
+
+(def cf (s/valid? ::contact-form scn))
+
+(def ex (s/explain ::contact-form msg))
+
+(def form-data (r/atom {:gdpr false}))
+;;use this https://formspree.io/#setup
+
+;; find a way to validate form data
 (defn contact []
-  (let [form-data (r/atom {})
-        company? (r/atom nil)]
+  (let [
+        company? (r/atom nil)
+
+        ]
     (fn []
+      (println "form-data" @form-data)
       [:div
        [:> ui/Segment {:class-name "no-border segment-bg"
                        :padded true}
@@ -278,17 +317,23 @@
                          :class-name "transparent-bg no-border padded-row"}
           [:h2 "CONTACT US"]
 
-          [:> ui/Form {:on-submit #(println @form-data)
-                       :class-name "padded-row"}
+          [:> ui/Form {;;:on-submit #(println @form-data)
+                       :class-name "padded-row"
+                       :action "https://formspree.io/stefan_kurcubic@yahoo.com"
+                       :method "post"}
            [:> ui/Form.Group {:widths "equal"}
             [:> ui/Form.Input {:placeholder "Your name"
                                :fluid true
                                :on-change (fn [e this]
-                                            (swap! form-data assoc :name (goog-obj/get this #js ["value"])))}]
+                                            (swap! form-data assoc :name (goog-obj/get this #js ["value"])))
+                               :value (:name @form-data)
+                               :name "name"}]
             [:> ui/Form.Input {:placeholder "E-mail address",
                                :fluid true
                                :on-change (fn [e this]
-                                            (swap! form-data assoc :email (goog-obj/get this #js ["value"])))}]]
+                                            (swap! form-data assoc :email (goog-obj/get this #js ["value"])))
+                               :value (:email @form-data)
+                               :name "email"}]]
            [:> ui/Form.Group {:inline true
                               :widths "equal"}
             [:> ui/Form.Field
@@ -301,18 +346,28 @@
               [:> ui/Form.Input {:placeholder "Company website"
                                  :fluid true
                                  :on-change (fn [e this]
-                                              (swap! form-data assoc :website (goog-obj/get this #js ["value"])))}])]
+                                              (swap! form-data assoc :website (goog-obj/get this #js ["value"])))
+                                 :value (:website @form-data)
+                                 :name "website"}])]
            [:> ui/Form.Group {:widths "equal"}
             [:> ui/Form.Input {:placeholder "Message topic"
                                :fluid true
                                :on-change (fn [e this]
-                                            (swap! form-data assoc :topic (goog-obj/get this #js ["value"])))}]]
+                                            (swap! form-data assoc :topic (goog-obj/get this #js ["value"])))
+                               :value (:topic @form-data)
+                               :name "topic"}]]
            [:> ui/Form.TextArea {:placeholder "Your message"
                                  :on-change (fn [e this]
-                                              (swap! form-data assoc :message (goog-obj/get this #js ["value"])))}]
+                                              (swap! form-data assoc :message (goog-obj/get this #js ["value"])))
+                                 :value (:message @form-data)
+                                 :name "message"}]
            [:> ui/Form.Checkbox {:label "I want to be informed about new features and information"
                                  :on-change (fn [e this] (swap! form-data assoc :gdpr (goog-obj/get this #js ["checked"])))}]
-           [:> ui/Form.Button "Submit"]]]]]])))
+           [:> ui/Form.Button {:inverted true
+                               :type "submit"} "Submit"]
+
+
+           ]]]]])))
 
 
 
@@ -322,9 +377,6 @@
                     :text-align :center}
    [:> ui/Grid {:stackable true
                 :class-name :light-blue}
-
-    ;; use POPUP instead of title
-
     [:> ui/Grid.Row {:columns 2}
      [:> ui/Grid.Column
       [:p "We can't wait for you to enage with us on social networks"]]
