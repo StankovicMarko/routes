@@ -8,7 +8,7 @@
    [clojure.spec.alpha :as s]))
 
 
-(set! *warn-on-infer* true)
+;; (set! *warn-on-infer* true)
 
 (def pc? (r/atom nil))
 
@@ -563,6 +563,8 @@
 
          ]]])))
 
+(def vo (r/atom nil))
+
 
 (defn layout []
   (let [ref (r/atom nil)]
@@ -570,7 +572,7 @@
       [:> ui/Responsive {:fire-on-mount true
                          :on-update (fn [event view-obj]
                                       (reset! pc?
-                                              (>= (.getWidth view-obj)
+                                              (>= (goog-obj/getValueByKeys view-obj #js ["width"])
                                                   (goog-obj/getValueByKeys ui/Responsive #js ["onlyMobile"
                                                                                               "maxWidth"]))))}
        [:> ui/Ref {:inner-ref #(reset! ref %)}

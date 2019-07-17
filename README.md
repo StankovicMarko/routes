@@ -30,6 +30,16 @@ To create a production build run:
 	clojure -A:fig:min
 
 
+
+# how to generate advanced build?
+ prod clojure -A:prod -m figwheel.main --build-once prod
+
+#### if you have problems with it
+Probably externs cannot be inferred for all the calls you're making from your code to foreign-libs. Try adding this on top of one of the namespaces where you're doing interop and see if you get any warnings `(set! *warn-on-infer* true)` (edited)
+
+You can also set `:pseudo-names` compiler option to `true` to see more clearly which part of your code is failing with advanced optimizations https://clojurescript.org/reference/compiler-options#pseudo-names
+
+
 ## License
 
 Copyright © 2018 FIXME
