@@ -1,0 +1,14 @@
+{:main routes.core
+ :output-to "resources/public/cljs-out/dev-main.js"
+ :output-dir "resources/public/cljs-out/out"
+ :asset-path "cljs-out/out"
+ :optimizations :simple
+ :closure-defines {goog.DEBUG false}
+ :pretty-print false
+ :infer-externs true
+ :closure-warnings
+ {:externs-validation :off :non-standard-jsdoc :off}
+ :externs ["react/externs/react.js"]}
+
+
+;; prod clojure -A:prod -m figwheel.main --build-once prod

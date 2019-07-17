@@ -7,6 +7,9 @@
    [cljsjs.semantic-ui-react :as ui]
    [clojure.spec.alpha :as s]))
 
+
+(set! *warn-on-infer* true)
+
 (def pc? (r/atom nil))
 
 (defn nav-bar [ref]
@@ -628,6 +631,9 @@
 ;; (done) grid ima blur slike ljudi i ruku ispred toga
 ;; (done) figure out how contact us will work
 ;; (done) 2. try to recreate the site to be as lean as possible but to retain the look and feel i already trimmed it
+
+;; 1. make prod build and deploy to github
+;; use for popup https://www.opensourcery.co.za/2018/04/22/passing-around-components-with-reagent-and-semantic-ui/
 
 ;; 1. add re-frame
 ;; refactor

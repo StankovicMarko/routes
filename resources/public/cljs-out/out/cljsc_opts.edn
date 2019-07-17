@@ -1,0 +1,1 @@
+{:infer-externs true, :output-dir "resources/public/cljs-out/out", :closure-warnings {:externs-validation :off, :non-standard-jsdoc :off}, :closure-defines {goog.DEBUG false}, :externs ["react/externs/react.js"], :optimizations :simple, :aot-cache false, :output-to "resources/public/cljs-out/dev-main.js", :asset-path "cljs-out/out", :main routes.core, :pretty-print false}
