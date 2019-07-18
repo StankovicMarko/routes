@@ -60,45 +60,22 @@
 
 (defn parallax []
   [:div
-   [:> ui/Image {:src "img/blur-stop.jpg"
-                 }]
-   [:div {:style {:positon :relative}}
-
+   [:div.home-background
     [:div {:style {:position :absolute
                    :width :40%
                    :height :30vw
                    :color :white
                    :top :10%
                    :right :50%
-
-
-                   ;;:background-color "rgba(117, 203, 231, 0.7)"
-                   :background-color "rgba(33, 133, 208, 0.7)"
-
-                   :border-radius :10px
                    :font-size :1.4vw
-                   :padding :20px
-                              }}
-     [:h1 {:style { :font-size :3vw}} "We help bus companies"]
+                   :padding :20px}}
+     [:h1 {:style {:font-size :4vw
+                   :font-weight 1000}} "We help bus companies"]
      [:p "Your clients don't know where the bus is and when it's coming?"]
      [:p "Your clients can't buy ticket onine?"]
      [:p "Your company wants to lower expenses and fuel consumption?"]
-     [:p "You've come to the right place."]
-
-     ]
-    [:div.img-over
-     ;; [:img {:src "img/hand.png"
-
-     ;;                  }]
-     ]]
-
-   ]
-
-
-
-
-
-  )
+     [:p "You've come to the right place."]]]
+   [:div.img-over]])
 
 
 (defn how [{:keys [header src desc]}]
@@ -640,13 +617,14 @@
 ;; (done) 2. try to recreate the site to be as lean as possible but to retain the look and feel i already trimmed it
 
 ;; (done) 1. make prod build/advanced compilation and deploy to github
-;; use for popup https://www.opensourcery.co.za/2018/04/22/passing-around-components-with-reagent-and-semantic-ui/
+;; (done) use for popup https://www.opensourcery.co.za/2018/04/22/passing-around-components-with-reagent-and-semantic-ui/
 
 ;; 1. add re-frame
 ;; refactor
 
-;; fix bugs (glitchy menu, disappearing sidebar on mozila, visible padding of home screen (then menu glitches)
-;; row size
+;; fix bugs (
+;; - glitchy menu,
+;; - disappearing sidebar on mozila,
+;; - visible padding of home screen (then menu glitches)
+;; - row size
 ;; add effects when what menu is changing in what we offer
-
-;;
