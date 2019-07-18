@@ -4,8 +4,7 @@
    [goog.object :as goog-obj]
    [reagent.core :as r]
    [routes.abc :as abc]
-   [cljsjs.semantic-ui-react :as ui]
-   [clojure.spec.alpha :as s]))
+   [cljsjs.semantic-ui-react :as ui]))
 
 
 ;; (set! *warn-on-infer* true)
@@ -249,47 +248,12 @@
 
 
 
-(s/def ::name string?)
 
-(def email-regex #"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,63}$")
-(s/def ::email-type (s/and string? #(re-matches email-regex %)))
-(s/def ::email ::email-type)
 
-(s/def ::website string?)
-(s/def ::topic string?)
-(s/def ::message string?)
-
-(s/def ::gdpr boolean?)
-
-(s/def ::contact-form (s/keys :req [::name ::email ::topic ::message ::gdpr]
-                              :opt [::website]))
-(def msg {::name "marko",
-          ::email "stane-sm@hotmail.com",
-          ::topic "topic",
-          ::message "message"
-          ::gdpr true})
-
-(def scn {::gdpr false,
-          ::name "a",
-          ::email "b",
-          ::topic "c",
-          ::message "daaaaaaa"})
-
-(def cf (s/valid? ::contact-form scn))
-
-(def ex (s/explain ::contact-form msg))
-
-(def form-data (r/atom {:gdpr false}))
-;;use this https://formspree.io/#setup
-
-;; find a way to validate form data
 (defn contact []
-  (let [
-        company? (r/atom nil)
-
-        ]
+  (let [form-data (r/atom {:gdpr false})
+        company? (r/atom nil)]
     (fn []
-      (println "form-data" @form-data)
       [:div
        [:> ui/Segment {:class-name "no-border segment-bg"
                        :padded true}
@@ -316,9 +280,7 @@
             [:> ui/Form.Field
              [:> ui/Checkbox {:label "Are you representative of a company?"
                               :on-change (fn [e this]
-                                           (do
-                                             (reset! company? (goog-obj/get this #js ["checked"]))
-                                             (swap! form-data dissoc :website)))}]]]
+                                           (reset! company? (goog-obj/get this #js ["checked"])))}]]]
            [:> ui/Form.Group {:widths "equal"}
 
             (when @company?
