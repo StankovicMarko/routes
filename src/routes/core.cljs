@@ -60,7 +60,8 @@
 
 (defn parallax []
   [:div
-   [:> ui/Image {:src "img/blur-stop.jpg"}]
+   [:> ui/Image {:src "img/blur-stop.jpg"
+                 }]
    [:div {:style {:positon :relative}}
 
     [:div {:style {:position :absolute
@@ -376,21 +377,25 @@
      [:> ui/Grid.Column
       [:p "We can't wait for you to enage with us on social networks"]]
      [:> ui/Grid.Column
-      [:> ui/Icon {:name "facebook official"
-                   :title "Facebook"
-                   ;;:color :blue
-                   :class-name "no-border"
-                   :circular true
-                   :size :big
+      [:> ui/Popup {:content "Facebook"
+                    :inverted true
+                    :position "top center"
+                    :trigger (r/as-component
+                              [:> ui/Icon {:name "facebook official"
+                                           :class-name "no-border"
+                                           :circular true
+                                           :size :big}])}]
+      [:> ui/Popup {:content "Linkedin"
+                    :inverted true
+                    :position "top center"
+                    :trigger (r/as-component
+                              [:> ui/Icon {:name "linkedin alternate"
+                                           :class-name "no-border"
+                                           :circular true
+                                           :size :big
+                                           }])}]
 
-                   }]
-      [:> ui/Icon {:name "linkedin alternate"
-                   :title "Linkedin"
-                   ;;:color :blue
-                   :class-name "no-border"
-                   :circular true
-                   :size :big
-                   }]]]]]
+      ]]]]
 
   )
 
@@ -437,7 +442,8 @@
           [:> ui/Grid.Column
 
            [:> ui/Image {:src "img/hand.png"
-                         :fluid true}]
+                         :fluid true}
+            ]
 
            ]])
 
@@ -575,14 +581,13 @@
                                               (>= (goog-obj/getValueByKeys view-obj #js ["width"])
                                                   (goog-obj/getValueByKeys ui/Responsive #js ["onlyMobile"
                                                                                               "maxWidth"]))))}
-       [:> ui/Ref {:inner-ref #(reset! ref %)}
+       (if @pc?
+         [:> ui/Ref {:inner-ref #(reset! ref %)}
+          [grid ref]]
+         [:> ui/Ref {:inner-ref #(reset! ref %)}
+          [mobile ref]]
+         )
 
-
-        (if @pc?
-          [grid ref]
-          [mobile ref]
-          )
-        ]
 
 
        ])))
@@ -634,14 +639,14 @@
 ;; (done) figure out how contact us will work
 ;; (done) 2. try to recreate the site to be as lean as possible but to retain the look and feel i already trimmed it
 
-;; 1. make prod build and deploy to github
+;; (done) 1. make prod build/advanced compilation and deploy to github
 ;; use for popup https://www.opensourcery.co.za/2018/04/22/passing-around-components-with-reagent-and-semantic-ui/
 
 ;; 1. add re-frame
 ;; refactor
 
 ;; fix bugs (glitchy menu, disappearing sidebar on mozila, visible padding of home screen (then menu glitches)
-
+;; row size
 ;; add effects when what menu is changing in what we offer
 
 ;;
