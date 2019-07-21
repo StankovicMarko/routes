@@ -19,8 +19,7 @@
                            :class-name "transparent-bg no-border padded-row"}
             [:h2 "CONTACT US"]
 
-            [:> ui/Form {;;:on-submit #(println @form-data)
-                         :class-name "padded-row"
+            [:> ui/Form {:class-name "padded-row"
                          :action "https://formspree.io/stefan_kurcubic@yahoo.com"
                          :method "post"}
              [:> ui/Form.Group {:widths "equal"}
@@ -38,6 +37,7 @@
                [:> ui/Checkbox {:label "Are you representative of a company?"
                                 :on-change (fn [e this]
                                              (reset! company? (goog-obj/get this #js ["checked"])))}]]]
+
              [:> ui/Form.Group {:widths "equal"}
 
               (when @company?
@@ -45,6 +45,7 @@
                                    :fluid true
                                    :name "website"
                                    :required true}])]
+
              [:> ui/Form.Group {:widths "equal"}
               [:> ui/Form.Input {:placeholder "Message topic"
                                  :fluid true
@@ -59,5 +60,4 @@
                                    :value (:gdpr @form-data)}]
 
              [:> ui/Form.Button {:inverted true
-                                 :type "submit"} "Submit"]]]]]]]
-       ])))
+                                 :type "submit"} "Submit"]]]]]]]])))

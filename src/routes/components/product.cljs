@@ -4,6 +4,23 @@
 
 
 
+(def items [{:title "Admin Panel"
+             :desc "You have full control over the flow of information in the system."
+             :img "img/admin.jpg"
+             :icon "desktop"}
+            {:title "Client Application"
+             :desc "Your clients can enjoy perks of your servies more fully."
+             :img "img/client.jpg"
+             :icon "mobile alternate"}
+            {:title "Future feat"
+             :desc "Future Feat"
+             :img "img/placeholder.png"
+             :icon "question circle outline"}
+            {:title "Future Feat"
+             :desc "Future Feat"
+             :img "img/placeholder.png"
+             :icon "question circle outline"}])
+
 
 (defn product-item [{:keys [title desc img icon]}]
   [:> ui/Segment {:placeholder true
@@ -29,24 +46,7 @@
 
 (defn products []
   (let [state (r/atom :admin)
-        index (r/atom 0)
-        items [{:title "Admin Panel"
-                :desc "You have full control over the flow of information in the system."
-                :img "img/admin.jpg"
-                :icon "desktop"}
-               {:title "Client Application"
-                :desc "Your clients can enjoy perks of your servies more fully."
-                :img "img/client.jpg"
-                :icon "mobile alternate"}
-               {:title "Future feat"
-                :desc "Future Feat"
-                :img "img/placeholder.png"
-                :icon "question circle outline"}
-               {:title "Future Feat"
-                :desc "Future Feat"
-                :img "img/placeholder.png"
-                :icon "question circle outline"}
-               ]]
+        index (r/atom 0)]
     (fn []
       [:> ui/Grid.Row
        [:> ui/Grid.Column
