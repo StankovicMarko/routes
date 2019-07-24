@@ -9,6 +9,7 @@ Object.Fragment;
 Object.Image;
 Object.Header;
 Object.Container;
+Object.Visibility;
 Object.Responsive;
 Object.findDOMNode;
 Object.Sidebar;

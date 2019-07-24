@@ -5,6 +5,55 @@ goog.require('cljs.core.constants');
 goog.require('reagent.core');
 routes.components.navigation.global$module$cljsjs$semantic_ui_react = goog.global["semanticUIReact"];
 routes.components.navigation.active_item = reagent.core.atom.cljs$core$IFn$_invoke$arity$1(cljs.core.cst$kw$home);
+routes.components.navigation.handle_nav_scroll = (function routes$components$navigation$handle_nav_scroll(p__12998){
+var map__12999 = p__12998;
+var map__12999__$1 = (((((!((map__12999 == null))))?(((((map__12999.cljs$lang$protocol_mask$partition0$ & (64))) || ((cljs.core.PROTOCOL_SENTINEL === map__12999.cljs$core$ISeq$))))?true:false):false))?cljs.core.apply.cljs$core$IFn$_invoke$arity$2(cljs.core.hash_map,map__12999):map__12999);
+var percentage = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__12999__$1,cljs.core.cst$kw$percentage);
+var direction = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__12999__$1,cljs.core.cst$kw$direction);
+if(cljs.core._EQ_.cljs$core$IFn$_invoke$arity$2(direction,"down")){
+if((((percentage > 0.16)) && ((percentage < 0.34)))){
+return cljs.core.reset_BANG_(routes.components.navigation.active_item,cljs.core.cst$kw$how);
+} else {
+if((((percentage > 0.34)) && ((percentage < 0.52)))){
+return cljs.core.reset_BANG_(routes.components.navigation.active_item,cljs.core.cst$kw$what);
+} else {
+if((((percentage > 0.52)) && ((percentage < 0.68)))){
+return cljs.core.reset_BANG_(routes.components.navigation.active_item,cljs.core.cst$kw$faq);
+} else {
+if((percentage > 0.68)){
+return cljs.core.reset_BANG_(routes.components.navigation.active_item,cljs.core.cst$kw$contact);
+} else {
+return null;
+
+}
+}
+}
+}
+} else {
+if((percentage < 0.04)){
+return cljs.core.reset_BANG_(routes.components.navigation.active_item,cljs.core.cst$kw$home);
+} else {
+if((((percentage > 0.14)) && ((percentage < 0.24)))){
+return cljs.core.reset_BANG_(routes.components.navigation.active_item,cljs.core.cst$kw$how);
+} else {
+if((((percentage > 0.24)) && ((percentage < 0.4)))){
+return cljs.core.reset_BANG_(routes.components.navigation.active_item,cljs.core.cst$kw$what);
+} else {
+if((((percentage > 0.4)) && ((percentage < 0.57)))){
+return cljs.core.reset_BANG_(routes.components.navigation.active_item,cljs.core.cst$kw$faq);
+} else {
+if((percentage > 0.68)){
+return cljs.core.reset_BANG_(routes.components.navigation.active_item,cljs.core.cst$kw$contact);
+} else {
+return null;
+
+}
+}
+}
+}
+}
+}
+});
 routes.components.navigation.nav_menu = (function routes$components$navigation$nav_menu(base_component,options){
 return new cljs.core.PersistentVector(null, 8, 5, cljs.core.PersistentVector.EMPTY_NODE, [cljs.core.cst$kw$_GT_,base_component,options,new cljs.core.PersistentVector(null, 5, 5, cljs.core.PersistentVector.EMPTY_NODE, [cljs.core.cst$kw$_GT_,routes.components.navigation.global$module$cljsjs$semantic_ui_react.Menu.Item,new cljs.core.PersistentArrayMap(null, 4, [cljs.core.cst$kw$as,"a",cljs.core.cst$kw$href,"#home",cljs.core.cst$kw$active,cljs.core._EQ_.cljs$core$IFn$_invoke$arity$2(cljs.core.deref(routes.components.navigation.active_item),cljs.core.cst$kw$home),cljs.core.cst$kw$on_DASH_click,(function (){
 return cljs.core.reset_BANG_(routes.components.navigation.active_item,cljs.core.cst$kw$home);
