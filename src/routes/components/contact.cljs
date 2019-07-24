@@ -12,8 +12,7 @@
        [:> ui/Grid.Column
         [:div.anchor-offset {:id "contact"}]
          [:div
-         [:> ui/Segment {:class-name "no-border segment-bg"
-                         :padded true}
+         [:> ui/Segment {:class-name "no-border segment-bg"}
           [:> ui/Container {:text-align :center}
            [:> ui/Segment {:placeholder true
                            :class-name "transparent-bg no-border padded-row"}

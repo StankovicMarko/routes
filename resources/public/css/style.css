@@ -29,6 +29,11 @@ body, html{
 
 }
 
+.padded-bottom{
+    padding-bottom: 13% !important;
+}
+
+
 .card-def {
     -webkit-box-shadow: unset !important;
     box-shadow: unset !important;
@@ -103,8 +108,8 @@ body, html{
 
 h2{
     text-align: center;
-    margin-top: 8% !important;
-    margin-bottom: 8% !important;
+    margin-top: 5% !important;
+    margin-bottom: 5% !important;
 }
 
 
@@ -114,9 +119,10 @@ h2{
 }
 
 
+
 .row {
 
-    min-height: 78vh !important;
+    min-height: 70vh !important;
 
 }
 
