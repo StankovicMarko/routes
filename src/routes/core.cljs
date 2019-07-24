@@ -159,7 +159,6 @@
 
 ;; - add titles for each section/row
 ;; - disappearing sidebar on mozila,
-;; - row size
 ;; - add effects when what menu is changing in what we offer
 
 
