@@ -82,9 +82,11 @@
 
 
 
+
 (defn main []
   (let [ref (r/atom nil)]
     (fn []
+
       [:> ui/Ref {:inner-ref #(reset! ref %)}
        [:> ui/Responsive {:fire-on-mount true
                           :on-update (fn [event view-obj]
@@ -92,10 +94,16 @@
                                                (>= (goog-obj/getValueByKeys view-obj #js ["width"])
                                                    (goog-obj/getValueByKeys ui/Responsive #js ["onlyMobile"
                                                                                                "maxWidth"]))))}
-
-        (if @pc?
-          [layout ref]
-          [mobile-layout ref])]])))
+        [:> ui/Visibility {:on-update (fn [e calc]
+                                        (nav/handle-nav-scroll
+                                         (-> calc
+                                             (goog-obj/getValueByKeys #js ["calculations"])
+                                             (js->clj :keywordize-keys true)
+                                             (select-keys [:percentagePassed :direction])
+                                             (clojure.set/rename-keys {:percentagePassed :percentage}))))}
+         (if @pc?
+           [layout ref]
+           [mobile-layout ref])]]])))
 
 
 
@@ -157,9 +165,13 @@
 ;; - (done) visible padding of home screen (then menu glitches)
 ;; - (done) glitchy menu,
 
-;; - add titles for each section/row
+
+;;
+;; - (done) change active nav menu item based on how much is scrolled
+;; - MOVE STATE TO Re-frame!
 ;; - disappearing sidebar on mozila,
 ;; - add effects when what menu is changing in what we offer
+;;
 
 
 ;; possibly update cider and lein
