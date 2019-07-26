@@ -28,13 +28,13 @@
    [:div.anchor-offset {:id "how"}]
    (for [item [{:header "Step 1"
                 :src "img/how1.png"
-                :desc "Contact us and about pricing plans and information about data that's needed in order to make system operational"}
+                :desc "Get in touch with us and learn about requirements"}
                {:header "Step 2"
                 :src "img/how2.png"
                 :desc "We setup online services and mobile apps with data you provided"}
                {:header "Step 3"
                 :src "img/how3.png"
-                :desc "You enjoy full control over the system while you customers have many perks one of which is knowing when bus is coming"}]]
+                :desc "Your company and your customers enjoy the experience of our services"}]]
      ^{:key (:header item)}
      [:> ui/Grid.Column
       [step item]

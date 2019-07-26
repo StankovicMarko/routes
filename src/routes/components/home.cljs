@@ -7,11 +7,23 @@
 
 (defn home-text []
   [:div
-   [:p "Your clients don't know where the bus is and when it's coming?"]
-   [:p "Your clients can't buy ticket onine?"]
-   [:p "Your company wants to lower expenses and fuel consumption?"]
-   [:p "You've come to the right place."]
-   [:p "EXPLAIN WHY the mission share vision passion"]])
+   [:p "We see a world where we do most with our time."]
+   [:p "With that vision in mind we crafted specific set of apps so that your customers can do the same."]
+   [:p "If you wish your customers:"]
+   [:> ui/List {:animated true
+                :vertical-align "middle"
+                :bulleted true
+                :size :large}
+
+    [:> ui/List.Item {:as :p} "knew where the bus is and when it will arrive"]
+    [:> ui/List.Item {:as :p} "were able to buy tickets online"]
+    [:> ui/List.Item {:as :p} "could rely on your services in times of need"]]
+   [:p "You've come to the right place."]])
+
+;; reklama "Imagine coming from work, waiting for bus, you can't wait to play with your kids, suddenly rain starts pouring, wind is getting stronger, you can barely hold your hat. Minutes pass you ask yourself 'Where is the bus?!', few moments later you catch a cab and as you sit you glance at the stop and bus is there. You spent more, came late and missed the bus. Only if you knew where the bus is!"
+
+;; bus routes was born out of will to be productive
+
 
 
 (defn home []
@@ -19,11 +31,11 @@
    [:> ui/Grid.Column
     [:div.home-background
      [:div {:style {:position :absolute
-                    :width :40%
+                    :width :50%
                     :height :30vw
                     :color :white
                     :top :10%
-                    :right :50%
+                    :right :45%
                     :font-size :1.4vw
                     :padding :20px}}
       [:h1 {:style {:font-size :4vw

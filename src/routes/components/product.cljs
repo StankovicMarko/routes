@@ -33,7 +33,7 @@
              :list ["Info for desired bus in real-time";;(position, arrival time...)
                     "Shows routes for buses with info about previous, next and future stops"
                     "Best route for desired destination" ;; (future)
-                    "Buy ticket online"]} ;;(future)
+                    "Buy tickets online"]} ;;(future)
 
             {:title "Data Overview"
              :desc "Have unique insight for your business based on data."
