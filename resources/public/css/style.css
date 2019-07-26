@@ -295,3 +295,7 @@ ui.placeholder.segment .button, .ui.placeholder.segment .field, .ui.placeholder.
 .menu-color {
     background-color: rgba(19, 143, 194, 1) !important;
 }
+
+.product-header {
+    text-shadow: 4px 4px 5px rgba(0, 0, 0, 0.1);
+}
