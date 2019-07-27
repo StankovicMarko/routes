@@ -28,28 +28,23 @@
   [:> base-component options
    [:> ui/Menu.Item {:as "a"
                      :href "#home"
-                     :active (= @active-item :home)
-                     :on-click #(reset! active-item :home)}
+                     :active (= @active-item :home)}
     [:> ui/Icon {:name "home"}] "Home"]
    [:> ui/Menu.Item {:as "a"
                      :href "#how"
-                     :active (= @active-item :how)
-                     :on-click #(reset! active-item :how)}
+                     :active (= @active-item :how)}
     [:> ui/Icon {:name "clone "}] "How it works"]
    [:> ui/Menu.Item {:as "a"
                      :href "#what"
-                     :active (= @active-item :what)
-                     :on-click #(reset! active-item :what)}
+                     :active (= @active-item :what)}
     [:> ui/Icon {:name "industry"}] "What we offer"]
    [:> ui/Menu.Item {:as "a"
                      :href "#faq"
-                     :active (= @active-item :faq)
-                     :on-click #(reset! active-item :faq)}
+                     :active (= @active-item :faq)}
     [:> ui/Icon {:name "question"}] "FAQ"]
    [:> ui/Menu.Item {:as "a"
                      :href "#contact"
-                     :active (= @active-item :contact)
-                     :on-click #(reset! active-item :contact)}
+                     :active (= @active-item :contact)}
     [:> ui/Icon {:name "envelope"}] "Contact Us"]])
 
 

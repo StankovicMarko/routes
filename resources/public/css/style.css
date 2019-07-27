@@ -4,6 +4,7 @@
 body, html{
     padding: 0;
     margin: 0;
+    scroll-behavior: smooth;
 }
 
 .ui.menu {
@@ -298,4 +299,9 @@ ui.placeholder.segment .button, .ui.placeholder.segment .field, .ui.placeholder.
 
 .product-header {
     text-shadow: 4px 4px 5px rgba(0, 0, 0, 0.1);
+}
+
+
+.ui.secondary.pointing.menu a.item:active{
+    border-color: transparent;
 }
