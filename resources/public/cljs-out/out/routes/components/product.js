@@ -13,8 +13,6 @@ if((typeof routes !== 'undefined') && (typeof routes.components !== 'undefined')
 routes.components.product.interval = null;
 }
 routes.components.product.cancel_timer = (function routes$components$product$cancel_timer(){
-cljs.core.println.cljs$core$IFn$_invoke$arity$variadic(cljs.core.prim_seq.cljs$core$IFn$_invoke$arity$2(["Stopping interval..."], 0));
-
 return clearInterval(routes.components.product.interval);
 });
 routes.components.product.handle_index = (function routes$components$product$handle_index(){
@@ -26,18 +24,16 @@ return cljs.core.reset_BANG_(routes.components.product.screen_index,(0));
 }
 });
 routes.components.product.start_timer = (function routes$components$product$start_timer(){
-cljs.core.println.cljs$core$IFn$_invoke$arity$variadic(cljs.core.prim_seq.cljs$core$IFn$_invoke$arity$2(["Starting interval..."], 0));
-
 return routes.components.product.interval = setInterval((function (){
 routes.components.product.handle_index();
 
 return cljs.core.reset_BANG_(routes.components.product.active_screen,cljs.core.get.cljs$core$IFn$_invoke$arity$2(routes.components.product.screens,cljs.core.deref(routes.components.product.screen_index)));
 }),(15000));
 });
-routes.components.product.handle_click = (function routes$components$product$handle_click(p__10046){
-var map__10047 = p__10046;
-var map__10047__$1 = (((((!((map__10047 == null))))?(((((map__10047.cljs$lang$protocol_mask$partition0$ & (64))) || ((cljs.core.PROTOCOL_SENTINEL === map__10047.cljs$core$ISeq$))))?true:false):false))?cljs.core.apply.cljs$core$IFn$_invoke$arity$2(cljs.core.hash_map,map__10047):map__10047);
-var index = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__10047__$1,cljs.core.cst$kw$index);
+routes.components.product.handle_click = (function routes$components$product$handle_click(p__13515){
+var map__13516 = p__13515;
+var map__13516__$1 = (((((!((map__13516 == null))))?(((((map__13516.cljs$lang$protocol_mask$partition0$ & (64))) || ((cljs.core.PROTOCOL_SENTINEL === map__13516.cljs$core$ISeq$))))?true:false):false))?cljs.core.apply.cljs$core$IFn$_invoke$arity$2(cljs.core.hash_map,map__13516):map__13516);
+var index = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__13516__$1,cljs.core.cst$kw$index);
 routes.components.product.cancel_timer();
 
 cljs.core.reset_BANG_(routes.components.product.screen_index,index);
@@ -53,18 +49,18 @@ routes.components.product.cancel_timer();
 
 routes.components.product.start_timer();
 }
-routes.components.product.product_item = (function routes$components$product$product_item(p__10049){
-var map__10050 = p__10049;
-var map__10050__$1 = (((((!((map__10050 == null))))?(((((map__10050.cljs$lang$protocol_mask$partition0$ & (64))) || ((cljs.core.PROTOCOL_SENTINEL === map__10050.cljs$core$ISeq$))))?true:false):false))?cljs.core.apply.cljs$core$IFn$_invoke$arity$2(cljs.core.hash_map,map__10050):map__10050);
-var title = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__10050__$1,cljs.core.cst$kw$title);
-var desc = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__10050__$1,cljs.core.cst$kw$desc);
-var img = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__10050__$1,cljs.core.cst$kw$img);
-var icon = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__10050__$1,cljs.core.cst$kw$icon);
-var list = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__10050__$1,cljs.core.cst$kw$list);
-return new cljs.core.PersistentVector(null, 4, 5, cljs.core.PersistentVector.EMPTY_NODE, [cljs.core.cst$kw$_GT_,routes.components.product.global$module$cljsjs$semantic_ui_react.Segment,new cljs.core.PersistentArrayMap(null, 2, [cljs.core.cst$kw$placeholder,true,cljs.core.cst$kw$class_DASH_name,"transparent-bg no-border"], null),new cljs.core.PersistentVector(null, 4, 5, cljs.core.PersistentVector.EMPTY_NODE, [cljs.core.cst$kw$_GT_,routes.components.product.global$module$cljsjs$semantic_ui_react.Grid,new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$text_DASH_align,cljs.core.cst$kw$center,cljs.core.cst$kw$stackable,true,cljs.core.cst$kw$columns,(2)], null),new cljs.core.PersistentVector(null, 5, 5, cljs.core.PersistentVector.EMPTY_NODE, [cljs.core.cst$kw$_GT_,routes.components.product.global$module$cljsjs$semantic_ui_react.Grid.Row,new cljs.core.PersistentArrayMap(null, 1, [cljs.core.cst$kw$vertical_DASH_align,cljs.core.cst$kw$middle], null),new cljs.core.PersistentVector(null, 5, 5, cljs.core.PersistentVector.EMPTY_NODE, [cljs.core.cst$kw$_GT_,routes.components.product.global$module$cljsjs$semantic_ui_react.Grid.Column,new cljs.core.PersistentVector(null, 5, 5, cljs.core.PersistentVector.EMPTY_NODE, [cljs.core.cst$kw$_GT_,routes.components.product.global$module$cljsjs$semantic_ui_react.Header,new cljs.core.PersistentArrayMap(null, 4, [cljs.core.cst$kw$as,cljs.core.cst$kw$h1,cljs.core.cst$kw$icon,cljs.core.cst$kw$icon,cljs.core.cst$kw$inverted,true,cljs.core.cst$kw$class_DASH_name,cljs.core.cst$kw$product_DASH_header], null),new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [cljs.core.cst$kw$_GT_,routes.components.product.global$module$cljsjs$semantic_ui_react.Icon,new cljs.core.PersistentArrayMap(null, 1, [cljs.core.cst$kw$name,icon], null)], null),title], null),new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [cljs.core.cst$kw$h3,desc], null),new cljs.core.PersistentVector(null, 4, 5, cljs.core.PersistentVector.EMPTY_NODE, [cljs.core.cst$kw$_GT_,routes.components.product.global$module$cljsjs$semantic_ui_react.Container,new cljs.core.PersistentArrayMap(null, 1, [cljs.core.cst$kw$text_DASH_align,cljs.core.cst$kw$left], null),new cljs.core.PersistentVector(null, 4, 5, cljs.core.PersistentVector.EMPTY_NODE, [cljs.core.cst$kw$_GT_,routes.components.product.global$module$cljsjs$semantic_ui_react.List,new cljs.core.PersistentArrayMap(null, 4, [cljs.core.cst$kw$animated,true,cljs.core.cst$kw$vertical_DASH_align,"middle",cljs.core.cst$kw$bulleted,true,cljs.core.cst$kw$size,cljs.core.cst$kw$large], null),cljs.core.map.cljs$core$IFn$_invoke$arity$2(((function (map__10050,map__10050__$1,title,desc,img,icon,list){
+routes.components.product.product_item = (function routes$components$product$product_item(p__13518){
+var map__13519 = p__13518;
+var map__13519__$1 = (((((!((map__13519 == null))))?(((((map__13519.cljs$lang$protocol_mask$partition0$ & (64))) || ((cljs.core.PROTOCOL_SENTINEL === map__13519.cljs$core$ISeq$))))?true:false):false))?cljs.core.apply.cljs$core$IFn$_invoke$arity$2(cljs.core.hash_map,map__13519):map__13519);
+var title = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__13519__$1,cljs.core.cst$kw$title);
+var desc = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__13519__$1,cljs.core.cst$kw$desc);
+var img = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__13519__$1,cljs.core.cst$kw$img);
+var icon = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__13519__$1,cljs.core.cst$kw$icon);
+var list = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__13519__$1,cljs.core.cst$kw$list);
+return new cljs.core.PersistentVector(null, 4, 5, cljs.core.PersistentVector.EMPTY_NODE, [cljs.core.cst$kw$_GT_,routes.components.product.global$module$cljsjs$semantic_ui_react.Segment,new cljs.core.PersistentArrayMap(null, 2, [cljs.core.cst$kw$placeholder,true,cljs.core.cst$kw$class_DASH_name,"transparent-bg no-border"], null),new cljs.core.PersistentVector(null, 4, 5, cljs.core.PersistentVector.EMPTY_NODE, [cljs.core.cst$kw$_GT_,routes.components.product.global$module$cljsjs$semantic_ui_react.Grid,new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$text_DASH_align,cljs.core.cst$kw$center,cljs.core.cst$kw$stackable,true,cljs.core.cst$kw$columns,(2)], null),new cljs.core.PersistentVector(null, 5, 5, cljs.core.PersistentVector.EMPTY_NODE, [cljs.core.cst$kw$_GT_,routes.components.product.global$module$cljsjs$semantic_ui_react.Grid.Row,new cljs.core.PersistentArrayMap(null, 1, [cljs.core.cst$kw$vertical_DASH_align,cljs.core.cst$kw$middle], null),new cljs.core.PersistentVector(null, 5, 5, cljs.core.PersistentVector.EMPTY_NODE, [cljs.core.cst$kw$_GT_,routes.components.product.global$module$cljsjs$semantic_ui_react.Grid.Column,new cljs.core.PersistentVector(null, 5, 5, cljs.core.PersistentVector.EMPTY_NODE, [cljs.core.cst$kw$_GT_,routes.components.product.global$module$cljsjs$semantic_ui_react.Header,new cljs.core.PersistentArrayMap(null, 4, [cljs.core.cst$kw$as,cljs.core.cst$kw$h1,cljs.core.cst$kw$icon,cljs.core.cst$kw$icon,cljs.core.cst$kw$inverted,true,cljs.core.cst$kw$class_DASH_name,cljs.core.cst$kw$product_DASH_header], null),new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [cljs.core.cst$kw$_GT_,routes.components.product.global$module$cljsjs$semantic_ui_react.Icon,new cljs.core.PersistentArrayMap(null, 1, [cljs.core.cst$kw$name,icon], null)], null),title], null),new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [cljs.core.cst$kw$h3,desc], null),new cljs.core.PersistentVector(null, 4, 5, cljs.core.PersistentVector.EMPTY_NODE, [cljs.core.cst$kw$_GT_,routes.components.product.global$module$cljsjs$semantic_ui_react.Container,new cljs.core.PersistentArrayMap(null, 1, [cljs.core.cst$kw$text_DASH_align,cljs.core.cst$kw$left], null),new cljs.core.PersistentVector(null, 4, 5, cljs.core.PersistentVector.EMPTY_NODE, [cljs.core.cst$kw$_GT_,routes.components.product.global$module$cljsjs$semantic_ui_react.List,new cljs.core.PersistentArrayMap(null, 4, [cljs.core.cst$kw$animated,true,cljs.core.cst$kw$vertical_DASH_align,"middle",cljs.core.cst$kw$bulleted,true,cljs.core.cst$kw$size,cljs.core.cst$kw$large], null),cljs.core.map.cljs$core$IFn$_invoke$arity$2(((function (map__13519,map__13519__$1,title,desc,img,icon,list){
 return (function (text){
 return cljs.core.with_meta(new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [cljs.core.cst$kw$_GT_,routes.components.product.global$module$cljsjs$semantic_ui_react.List.Item,text], null),new cljs.core.PersistentArrayMap(null, 1, [cljs.core.cst$kw$key,text], null));
-});})(map__10050,map__10050__$1,title,desc,img,icon,list))
+});})(map__13519,map__13519__$1,title,desc,img,icon,list))
 ,list)], null)], null)], null),new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [cljs.core.cst$kw$_GT_,routes.components.product.global$module$cljsjs$semantic_ui_react.Grid.Column,new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [cljs.core.cst$kw$_GT_,routes.components.product.global$module$cljsjs$semantic_ui_react.Image,new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$src,img,cljs.core.cst$kw$rounded,true,cljs.core.cst$kw$class_DASH_name,cljs.core.cst$kw$img_DASH_shadow], null)], null)], null)], null)], null)], null);
 });
 routes.components.product.products = (function routes$components$product$products(){

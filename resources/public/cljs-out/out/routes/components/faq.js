@@ -5,16 +5,16 @@ goog.require('cljs.core.constants');
 goog.require('reagent.core');
 routes.components.faq.global$module$cljsjs$semantic_ui_react = goog.global["semanticUIReact"];
 routes.components.faq.active_QMARK_ = reagent.core.atom.cljs$core$IFn$_invoke$arity$1((0));
-routes.components.faq.question = (function routes$components$faq$question(p__10057){
-var map__10058 = p__10057;
-var map__10058__$1 = (((((!((map__10058 == null))))?(((((map__10058.cljs$lang$protocol_mask$partition0$ & (64))) || ((cljs.core.PROTOCOL_SENTINEL === map__10058.cljs$core$ISeq$))))?true:false):false))?cljs.core.apply.cljs$core$IFn$_invoke$arity$2(cljs.core.hash_map,map__10058):map__10058);
-var index = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__10058__$1,cljs.core.cst$kw$index);
-var title = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__10058__$1,cljs.core.cst$kw$title);
-var content = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__10058__$1,cljs.core.cst$kw$content);
-return new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [cljs.core.cst$kw$div,new cljs.core.PersistentVector(null, 4, 5, cljs.core.PersistentVector.EMPTY_NODE, [cljs.core.cst$kw$_GT_,routes.components.faq.global$module$cljsjs$semantic_ui_react.Accordion.Title,new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$class_DASH_name,"title gray-text",cljs.core.cst$kw$active,cljs.core._EQ_.cljs$core$IFn$_invoke$arity$2(index,cljs.core.deref(routes.components.faq.active_QMARK_)),cljs.core.cst$kw$on_DASH_click,((function (map__10058,map__10058__$1,index,title,content){
+routes.components.faq.question = (function routes$components$faq$question(p__13533){
+var map__13534 = p__13533;
+var map__13534__$1 = (((((!((map__13534 == null))))?(((((map__13534.cljs$lang$protocol_mask$partition0$ & (64))) || ((cljs.core.PROTOCOL_SENTINEL === map__13534.cljs$core$ISeq$))))?true:false):false))?cljs.core.apply.cljs$core$IFn$_invoke$arity$2(cljs.core.hash_map,map__13534):map__13534);
+var index = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__13534__$1,cljs.core.cst$kw$index);
+var title = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__13534__$1,cljs.core.cst$kw$title);
+var content = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__13534__$1,cljs.core.cst$kw$content);
+return new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [cljs.core.cst$kw$div,new cljs.core.PersistentVector(null, 4, 5, cljs.core.PersistentVector.EMPTY_NODE, [cljs.core.cst$kw$_GT_,routes.components.faq.global$module$cljsjs$semantic_ui_react.Accordion.Title,new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$class_DASH_name,"title gray-text",cljs.core.cst$kw$active,cljs.core._EQ_.cljs$core$IFn$_invoke$arity$2(index,cljs.core.deref(routes.components.faq.active_QMARK_)),cljs.core.cst$kw$on_DASH_click,((function (map__13534,map__13534__$1,index,title,content){
 return (function (){
 return cljs.core.reset_BANG_(routes.components.faq.active_QMARK_,((cljs.core._EQ_.cljs$core$IFn$_invoke$arity$2(index,cljs.core.deref(routes.components.faq.active_QMARK_)))?(-1):index));
-});})(map__10058,map__10058__$1,index,title,content))
+});})(map__13534,map__13534__$1,index,title,content))
 ], null),new cljs.core.PersistentVector(null, 5, 5, cljs.core.PersistentVector.EMPTY_NODE, [cljs.core.cst$kw$_GT_,routes.components.faq.global$module$cljsjs$semantic_ui_react.Header,new cljs.core.PersistentArrayMap(null, 1, [cljs.core.cst$kw$as,cljs.core.cst$kw$h3], null),new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [cljs.core.cst$kw$_GT_,routes.components.faq.global$module$cljsjs$semantic_ui_react.Icon,new cljs.core.PersistentArrayMap(null, 1, [cljs.core.cst$kw$name,((cljs.core._EQ_.cljs$core$IFn$_invoke$arity$2(index,cljs.core.deref(routes.components.faq.active_QMARK_)))?"minus circle":"plus circle")], null)], null),title], null)], null),new cljs.core.PersistentVector(null, 4, 5, cljs.core.PersistentVector.EMPTY_NODE, [cljs.core.cst$kw$_GT_,routes.components.faq.global$module$cljsjs$semantic_ui_react.Accordion.Content,new cljs.core.PersistentArrayMap(null, 1, [cljs.core.cst$kw$active,cljs.core._EQ_.cljs$core$IFn$_invoke$arity$2(index,cljs.core.deref(routes.components.faq.active_QMARK_))], null),content], null)], null);
 });
 routes.components.faq.faq = (function routes$components$faq$faq(){

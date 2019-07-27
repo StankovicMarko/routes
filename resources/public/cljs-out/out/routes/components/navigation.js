@@ -5,11 +5,11 @@ goog.require('cljs.core.constants');
 goog.require('reagent.core');
 routes.components.navigation.global$module$cljsjs$semantic_ui_react = goog.global["semanticUIReact"];
 routes.components.navigation.active_item = reagent.core.atom.cljs$core$IFn$_invoke$arity$1(cljs.core.cst$kw$home);
-routes.components.navigation.handle_nav_scroll = (function routes$components$navigation$handle_nav_scroll(p__9805){
-var map__9806 = p__9805;
-var map__9806__$1 = (((((!((map__9806 == null))))?(((((map__9806.cljs$lang$protocol_mask$partition0$ & (64))) || ((cljs.core.PROTOCOL_SENTINEL === map__9806.cljs$core$ISeq$))))?true:false):false))?cljs.core.apply.cljs$core$IFn$_invoke$arity$2(cljs.core.hash_map,map__9806):map__9806);
-var percentage = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__9806__$1,cljs.core.cst$kw$percentage);
-var direction = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__9806__$1,cljs.core.cst$kw$direction);
+routes.components.navigation.handle_nav_scroll = (function routes$components$navigation$handle_nav_scroll(p__12998){
+var map__12999 = p__12998;
+var map__12999__$1 = (((((!((map__12999 == null))))?(((((map__12999.cljs$lang$protocol_mask$partition0$ & (64))) || ((cljs.core.PROTOCOL_SENTINEL === map__12999.cljs$core$ISeq$))))?true:false):false))?cljs.core.apply.cljs$core$IFn$_invoke$arity$2(cljs.core.hash_map,map__12999):map__12999);
+var percentage = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__12999__$1,cljs.core.cst$kw$percentage);
+var direction = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__12999__$1,cljs.core.cst$kw$direction);
 if(cljs.core._EQ_.cljs$core$IFn$_invoke$arity$2(direction,"down")){
 if((((percentage > 0.16)) && ((percentage < 0.34)))){
 return cljs.core.reset_BANG_(routes.components.navigation.active_item,cljs.core.cst$kw$how);
