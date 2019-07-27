@@ -54,9 +54,7 @@
 
 
 (defn cancel-timer []
-  (do
-    (println "Stopping interval...")
-    (js/clearInterval interval)))
+  (js/clearInterval interval))
 
 
 (defn handle-index []
@@ -67,11 +65,9 @@
 
 
 (defn start-timer []
-  (do
-    (println "Starting interval...")
-    (set! interval (js/setInterval (fn []
-                                     (do (handle-index)
-                                         (reset! active-screen (get screens @screen-index)))) 15000))))
+  (set! interval (js/setInterval (fn []
+                                   (do (handle-index)
+                                       (reset! active-screen (get screens @screen-index)))) 15000)))
 
 
 (defn handle-click [{:keys [index]}]
