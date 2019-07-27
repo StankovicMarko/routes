@@ -38,14 +38,14 @@
                      :content [:p "Our systems require minimal amount of data to setup. The type of data we need usually can fit on one sheet of exel file. In order for our services to be operational we need list of all bus stops for each bus line that's in use."]}]
           [question {:index 1
                      :title "Are there any hardware requirements for bus companies?"
-                     :content [:p "Yes and they are also minimal. Bus Routes assumes buses have Android or iOS device inside that will host Producer App. To access Admin Panel you would need internet connection and internet browser (Chrome, Mozila, Opera...) Users of transportaion services that you offer need to have Android or iOS device in order to use our Client App."]}]
+                     :content [:p "Yes and they are also minimal. Bus Routes assumes buses will have Android or iOS device inside that will host Producer App. To access Admin Panel you would need internet connection and internet browser (Chrome, Mozila, Opera...) Users of transportaion services that you offer need to have Android or iOS device in order to use our Client App."]}]
 
           [question {:index 2
                      :title "Do you offer free trial?"
                      :content [:p "Yes! The way it works is by following "
                                [:a {:href "#how"
                                     :style {:color :black}}
-                                "the steps."] " Once everything is setup you can use our services for 60 days free of charge, during which we would like to get feedback every 14 days. For maximum result we would advise you to inform users of your transportation services about client app. "]}]
+                                "the steps."] " Once everything is setup you can use our services for 60 days free of charge, during which we would like to get feedback every 14 days. Of course our technical support will assist you in case of any problems. For maximum result we would advise you to inform users of your transportation services about Client App."]}]
           [question {:index 3
                      :title "What happens if we like the services?"
                      :content [:p "If you would like to use all Bus Routes has to "

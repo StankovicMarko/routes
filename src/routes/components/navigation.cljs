@@ -13,7 +13,7 @@
       (and (> percentage 0.16) (< percentage 0.34)) (reset! active-item :how)
       (and (> percentage 0.34) (< percentage 0.52)) (reset! active-item :what)
       (and (> percentage 0.52) (< percentage 0.68)) (reset! active-item :faq)
-      (and (> percentage 0.68)) (reset! active-item :contact)
+      (and (> percentage 0.72)) (reset! active-item :contact)
       :else nil)
     (cond
       (< percentage 0.04) (reset! active-item :home)
