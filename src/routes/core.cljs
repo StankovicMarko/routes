@@ -168,9 +168,9 @@
 
 ;;
 ;; - (done) change active nav menu item based on how much is scrolled
-;; - MOVE STATE TO Re-frame!
-;; - disappearing sidebar on mozila,
-;; - add effects when what menu is changing in what we offer
+;; - (done) MOVE STATE TO Re-frame!
+;; - (done) disappearing sidebar on mozila,
+;; - (done) add effects when what menu is changing in what we offer
 ;;
 
 
