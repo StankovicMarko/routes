@@ -141,37 +141,8 @@
 
 
 ;; plan
-;; 1. rekreiraj sajt koristice semantic ui
-;;(done) mobilna verzija ima samo ruku i sliku aplikacije
-;; (done) mobilna da bude float i da se skroluje menu
-;; (done) grid ima blur slike ljudi i ruku ispred toga
-;; (done) figure out how contact us will work
-;; (done) 2. try to recreate the site to be as lean as possible but to retain the look and feel i already trimmed it
-
-;; (done) 1. make prod build/advanced compilation and deploy to github
-;; (done) use for popup https://www.opensourcery.co.za/2018/04/22/passing-around-components-with-reagent-and-semantic-ui/
-
-;; (done) 1. add re-frame
-;; (done) refactor (each component is a type row it has to be able to be plugged into grid layout)
-;; (done) - decouple nav bar, i had an idea to make different rows if it's mobile or pc
-;;          also the menu bug could be because it's in grid row, move navigation outside and see if that
-;;          fixed the issue. of course navigation will change based on device
-
-
-
-
-
-;; fix bugs (
-;; - (done) visible padding of home screen (then menu glitches)
-;; - (done) glitchy menu,
-
-
-;;
-;; - (done) change active nav menu item based on how much is scrolled
-;; - (done) MOVE STATE TO Re-frame!
-;; - (done) disappearing sidebar on mozila,
-;; - (done) add effects when what menu is changing in what we offer
-;;
+;; - update pictures
+;; - buy domain and apply it
 
 
 ;; possibly update cider and lein

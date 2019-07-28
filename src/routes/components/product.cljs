@@ -12,16 +12,16 @@
              :desc "This application is made to assist the drivers and collect data."
              :img "img/producer.jpg"
              :icon "bus"
-             :list ["Collects data for services" ;;(bus for invalids, space for pregant)
+             :list ["Collects data for services (trial)" ;;(bus for invalids, space for pregant)
                     "Shows speed limits warnings" ;;(future)
-                    "Notifications about traffic" ;; (future)
+                    "Notifies drivers about traffic" ;; (future)
                     "Displays route for drivers"]} ;; (future)
 
             {:title "Admin Panel"
              :desc "You have full control over the flow of information in the system."
              :img "img/admin.jpg"
              :icon "desktop"
-             :list ["Monitoring of buses in real-time"
+             :list ["Monitoring of buses in real-time (trial)"
                     "Easily access information using advanced search" ;;(future)
                     "Shows live stats of active buses" ;;(future, km driven, fuel consumption)
                     "Shows details about the drivers"]} ;;(future, driver behavior, speed limit warnings)
@@ -30,8 +30,8 @@
              :desc "Your clients can enjoy perks of your servies more fully."
              :img "img/client.jpg"
              :icon "mobile alternate"
-             :list ["Info for desired bus in real-time";;(position, arrival time...)
-                    "Shows routes for buses with info about previous, next and future stops"
+             :list ["Info for desired bus in real-time (trial)";;(position, arrival time...)
+                    "Shows routes for buses with info about future stops (trial)" ;; previous, next and
                     "Best route for desired destination" ;; (future)
                     "Buy tickets online"]} ;;(future)
 
