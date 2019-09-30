@@ -40,6 +40,10 @@ Probably externs cannot be inferred for all the calls you're making from your co
 You can also set `:pseudo-names` compiler option to `true` to see more clearly which part of your code is failing with advanced optimizations https://clojurescript.org/reference/compiler-options#pseudo-names
 
 
+# how to connect domain and github pages
+https://www.namecheap.com/support/knowledgebase/article.aspx/9645/2208/how-do-i-link-my-domain-to-github-pages
+
+
 ## License
 
 Copyright © 2018 FIXME
