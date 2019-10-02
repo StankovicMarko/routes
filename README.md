@@ -32,7 +32,8 @@ To create a production build run:
 
 
 # how to generate advanced build?
- prod clojure -A:prod -m figwheel.main --build-once prod
+1. cp -avr resources/public/img/ .
+2. prod clojure -A:prod -m figwheel.main --build-once prod
 
 #### if you have problems with it
 Probably externs cannot be inferred for all the calls you're making from your code to foreign-libs. Try adding this on top of one of the namespaces where you're doing interop and see if you get any warnings `(set! *warn-on-infer* true)` (edited)
