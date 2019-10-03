@@ -142,10 +142,14 @@
 
 
 ;; plan
-;; - update pictures
+
 ;;(done) - buy domain and apply it
-;; - add video explaining what you do that is animated
 ;;(done) - add titles for how it works and what we offer
 ;;(done) - put text as justify in faq
+;;(done) - create facebook and linkedin pages put them on site
+;; - update email for contact form (after you setup business email)
+;; - put benefits in what section
+;; - update pictures (after you style producer)
+;; - add video explaining what you do that is animated
 
 ;; possibly update cider and lein

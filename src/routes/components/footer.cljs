@@ -15,20 +15,24 @@
        [:> ui/Grid.Column
         [:p "We can't wait for you to enage with us on social networks"]]
        [:> ui/Grid.Column
-        [:> ui/Popup {:content "Facebook"
-                      :inverted true
-                      :position "top center"
-                      :trigger (r/as-component
-                                [:> ui/Icon {:name "facebook official"
-                                             :class-name "no-border"
-                                             :circular true
-                                             :size :big}])}]
-        [:> ui/Popup {:content "Linkedin"
-                      :inverted true
-                      :position "top center"
-                      :trigger (r/as-component
-                                [:> ui/Icon {:name "linkedin alternate"
-                                             :class-name "no-border"
-                                             :circular true
-                                             :size :big
-                                             }])}]]]]]]])
+        [:a {:href "https://www.facebook.com/busroutes.io"
+             :target "_blank"}
+         [:> ui/Popup {:content "Facebook"
+                       :inverted true
+                       :position "top center"
+                       :trigger (r/as-component
+                                 [:> ui/Icon {:name "facebook official"
+                                              :class-name "no-border"
+                                              :circular true
+                                              :size :big}])}]]
+        [:a {:href "https://www.linkedin.com/company/bus-routes"
+             :target "_blank"}
+         [:> ui/Popup {:content "Linkedin"
+                       :inverted true
+                       :position "top center"
+                       :trigger (r/as-component
+                                 [:> ui/Icon {:name "linkedin alternate"
+                                              :class-name "no-border"
+                                              :circular true
+                                              :size :big
+                                              }])}]]]]]]]])
