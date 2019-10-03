@@ -147,6 +147,10 @@
 ;;(done) - add titles for how it works and what we offer
 ;;(done) - put text as justify in faq
 ;;(done) - create facebook and linkedin pages put them on site
+;; - add twitter retweet "Check out this interesting solution for bus companies" should i make company twitter?
+;; - add OP tags https://stackoverflow.com/questions/34941283/how-viber-select-the-image-to-display-from-html-page/41953593
+;;   https://ogp.me/
+
 ;; - update email for contact form (after you setup business email)
 ;; - put benefits in what section
 ;; - update pictures (after you style producer)
