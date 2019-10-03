@@ -143,9 +143,9 @@
 
 ;; plan
 ;; - update pictures
-;; - buy domain and apply it
+;;(done) - buy domain and apply it
 ;; - add video explaining what you do that is animated
-;; - add titles for how it works and what we offer
-;; - put text as justify in faq
+;;(done) - add titles for how it works and what we offer
+;;(done) - put text as justify in faq
 
 ;; possibly update cider and lein

@@ -26,7 +26,7 @@
    [:> ui/Grid.Column
     [:> ui/Container {:text true
                       :class-name "light-blue gray-text padded-bottom"
-                      :text-align :left}
+                      :text-align :justified}
      [:div.anchor-offset {:id "faq"
                           :style (when pc?
                                    {:top :-22vh})}]

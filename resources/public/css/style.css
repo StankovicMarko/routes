@@ -223,6 +223,10 @@ ui.placeholder.segment .button, .ui.placeholder.segment .field, .ui.placeholder.
 	padding-right: 5% !important;
     }
 
+    .content> p {
+	margin-left: unset;
+}
+
 
 }
 
