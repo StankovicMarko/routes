@@ -215,7 +215,7 @@ ui.placeholder.segment .button, .ui.placeholder.segment .field, .ui.placeholder.
     .anchor-offset {
 	display: hidden;
 	position: relative;
-	top: -15vh;
+	top: -13vh;
     }
 
     .padded-row{

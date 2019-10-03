@@ -35,9 +35,9 @@
         [home/home])
 
       [steps/steps]
-      [product/products]
-      [faq/faq]
-      [contact/contact-form]
+      [product/products @pc?]
+      [faq/faq @pc?]
+      [contact/contact-form @pc?]
       [footer/footer]]]))
 
 

@@ -21,14 +21,15 @@
     content]])
 
 
-(defn faq []
+(defn faq [pc?]
   [:> ui/Grid.Row
    [:> ui/Grid.Column
     [:> ui/Container {:text true
                       :class-name "light-blue gray-text padded-bottom"
                       :text-align :left}
      [:div.anchor-offset {:id "faq"
-                          :style {:top :-22vh}}]
+                          :style (when pc?
+                                   {:top :-22vh})}]
      [:> ui/Header {:as :h2} "FREQUENTLY ASKED QUESTIONS"]
      [:> ui/Accordion {:exclusive true
                        :fluid true}

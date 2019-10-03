@@ -113,13 +113,14 @@
                     :rounded true
                     :class-name :img-shadow}]]]]])
 
-(defn products []
+(defn products [pc?]
   [:> ui/Grid.Row {:class-name "no-border segment-bg"}
    [:> ui/Grid.Column
     [:div
      [:> ui/Container {:text-align :center}
       [:div.anchor-offset {:id "what"
-                           :style {:top :-24vh}}]
+                           :style (when pc?
+                                    {:top :-24vh})}]
       [:h2 {:style {:color :white}} "WHAT WE OFFER"]
       [product-item (get items @screen-index)]]
 

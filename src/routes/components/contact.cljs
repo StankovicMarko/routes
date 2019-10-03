@@ -4,7 +4,7 @@
             [reagent.core :as r]))
 
 
-(defn contact-form []
+(defn contact-form [pc?]
   (let [form-data (r/atom {:gdpr false})
         company? (r/atom nil)]
     (fn []
@@ -16,7 +16,8 @@
            [:> ui/Segment {:placeholder true ;; for some reason this expands the row
                            :class-name "transparent-bg no-border padded-row"}
             [:div.anchor-offset {:id "contact"
-                                 :style {:top :-19vh}}]
+                                 :style (when pc?
+                                          {:top :-19vh})}]
             [:h2 "CONTACT US"]
 
             [:> ui/Form {:class-name "padded-row"
