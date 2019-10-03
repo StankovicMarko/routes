@@ -18,7 +18,7 @@ routes.core.global$module$cljsjs$semantic_ui_react = goog.global["semanticUIReac
 routes.core.pc_QMARK_ = reagent.core.atom.cljs$core$IFn$_invoke$arity$1(null);
 routes.core.layout = (function routes$core$layout(ref){
 return (function (){
-return new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [cljs.core.cst$kw$div,new cljs.core.PersistentVector(null, 11, 5, cljs.core.PersistentVector.EMPTY_NODE, [cljs.core.cst$kw$_GT_,routes.core.global$module$cljsjs$semantic_ui_react.Grid,new cljs.core.PersistentArrayMap(null, 2, [cljs.core.cst$kw$stackable,true,cljs.core.cst$kw$class_DASH_name,cljs.core.cst$kw$light_DASH_blue], null),(cljs.core.truth_(cljs.core.deref(routes.core.pc_QMARK_))?new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [routes.components.navigation.wide_menu,ref], null):null),((cljs.core.not(cljs.core.deref(routes.core.pc_QMARK_)))?new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [routes.components.home.mobile_home], null):null),(cljs.core.truth_(cljs.core.deref(routes.core.pc_QMARK_))?new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [routes.components.home.home], null):null),new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [routes.components.steps.steps], null),new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [routes.components.product.products], null),new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [routes.components.faq.faq], null),new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [routes.components.contact.contact_form], null),new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [routes.components.footer.footer], null)], null)], null);
+return new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [cljs.core.cst$kw$div,new cljs.core.PersistentVector(null, 11, 5, cljs.core.PersistentVector.EMPTY_NODE, [cljs.core.cst$kw$_GT_,routes.core.global$module$cljsjs$semantic_ui_react.Grid,new cljs.core.PersistentArrayMap(null, 2, [cljs.core.cst$kw$stackable,true,cljs.core.cst$kw$class_DASH_name,cljs.core.cst$kw$light_DASH_blue], null),(cljs.core.truth_(cljs.core.deref(routes.core.pc_QMARK_))?new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [routes.components.navigation.wide_menu,ref], null):null),((cljs.core.not(cljs.core.deref(routes.core.pc_QMARK_)))?new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [routes.components.home.mobile_home], null):null),(cljs.core.truth_(cljs.core.deref(routes.core.pc_QMARK_))?new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [routes.components.home.home], null):null),new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [routes.components.steps.steps], null),new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [routes.components.product.products,cljs.core.deref(routes.core.pc_QMARK_)], null),new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [routes.components.faq.faq,cljs.core.deref(routes.core.pc_QMARK_)], null),new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [routes.components.contact.contact_form,cljs.core.deref(routes.core.pc_QMARK_)], null),new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [routes.components.footer.footer], null)], null)], null);
 });
 });
 routes.core.mobile_layout = (function routes$core$mobile_layout(ref){
@@ -46,25 +46,25 @@ var ref = reagent.core.atom.cljs$core$IFn$_invoke$arity$1(null);
 return ((function (ref){
 return (function (){
 return new cljs.core.PersistentVector(null, 4, 5, cljs.core.PersistentVector.EMPTY_NODE, [cljs.core.cst$kw$_GT_,routes.core.global$module$cljsjs$semantic_ui_react.Ref,new cljs.core.PersistentArrayMap(null, 1, [cljs.core.cst$kw$inner_DASH_ref,((function (ref){
-return (function (p1__13538_SHARP_){
-return cljs.core.reset_BANG_(ref,p1__13538_SHARP_);
+return (function (p1__10073_SHARP_){
+return cljs.core.reset_BANG_(ref,p1__10073_SHARP_);
 });})(ref))
 ], null),new cljs.core.PersistentVector(null, 4, 5, cljs.core.PersistentVector.EMPTY_NODE, [cljs.core.cst$kw$_GT_,routes.core.global$module$cljsjs$semantic_ui_react.Responsive,new cljs.core.PersistentArrayMap(null, 2, [cljs.core.cst$kw$fire_DASH_on_DASH_mount,true,cljs.core.cst$kw$on_DASH_update,((function (ref){
 return (function (event,view_obj){
-return cljs.core.reset_BANG_(routes.core.pc_QMARK_,((function (){var G__13539 = view_obj;
-var G__13540 = ["width"];
-return goog.object.getValueByKeys(G__13539,G__13540);
-})() >= (function (){var G__13541 = routes.core.global$module$cljsjs$semantic_ui_react.Responsive;
-var G__13542 = ["onlyMobile","maxWidth"];
-return goog.object.getValueByKeys(G__13541,G__13542);
+return cljs.core.reset_BANG_(routes.core.pc_QMARK_,((function (){var G__10074 = view_obj;
+var G__10075 = ["width"];
+return goog.object.getValueByKeys(G__10074,G__10075);
+})() >= (function (){var G__10076 = routes.core.global$module$cljsjs$semantic_ui_react.Responsive;
+var G__10077 = ["onlyMobile","maxWidth"];
+return goog.object.getValueByKeys(G__10076,G__10077);
 })()));
 });})(ref))
 ], null),new cljs.core.PersistentVector(null, 4, 5, cljs.core.PersistentVector.EMPTY_NODE, [cljs.core.cst$kw$_GT_,routes.core.global$module$cljsjs$semantic_ui_react.Visibility,new cljs.core.PersistentArrayMap(null, 1, [cljs.core.cst$kw$on_DASH_update,((function (ref){
 return (function (e,calc){
-return routes.components.navigation.handle_nav_scroll(clojure.set.rename_keys(cljs.core.select_keys(cljs.core.js__GT_clj.cljs$core$IFn$_invoke$arity$variadic((function (){var G__13543 = calc;
-var G__13544 = ["calculations"];
-return goog.object.getValueByKeys(G__13543,G__13544);
-})(),cljs.core.prim_seq.cljs$core$IFn$_invoke$arity$2([cljs.core.cst$kw$keywordize_DASH_keys,true], 0)),new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [cljs.core.cst$kw$percentagePassed,cljs.core.cst$kw$direction], null)),new cljs.core.PersistentArrayMap(null, 1, [cljs.core.cst$kw$percentagePassed,cljs.core.cst$kw$percentage], null)));
+return routes.components.navigation.handle_nav_scroll(clojure.set.rename_keys(cljs.core.select_keys(cljs.core.js__GT_clj.cljs$core$IFn$_invoke$arity$variadic((function (){var G__10078 = calc;
+var G__10079 = ["calculations"];
+return goog.object.getValueByKeys(G__10078,G__10079);
+})(),cljs.core.prim_seq.cljs$core$IFn$_invoke$arity$2([cljs.core.cst$kw$keywordize_DASH_keys,true], 0)),new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [cljs.core.cst$kw$percentagePassed,cljs.core.cst$kw$direction], null)),new cljs.core.PersistentArrayMap(null, 1, [cljs.core.cst$kw$percentagePassed,cljs.core.cst$kw$percentage], null)),cljs.core.deref(routes.core.pc_QMARK_));
 });})(ref))
 ], null),(cljs.core.truth_(cljs.core.deref(routes.core.pc_QMARK_))?new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [routes.core.layout,ref], null):new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [routes.core.mobile_layout,ref], null))], null)], null)], null);
 });
@@ -95,8 +95,8 @@ routes.core.on_reload = (function routes$core$on_reload(){
 return routes.core.mount_app_element();
 });
 routes.core.init = (function routes$core$init(){
-var G__13545_13546 = new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [cljs.core.cst$kw$initialize_DASH_db], null);
-(re_frame.core.dispatch_sync.cljs$core$IFn$_invoke$arity$1 ? re_frame.core.dispatch_sync.cljs$core$IFn$_invoke$arity$1(G__13545_13546) : re_frame.core.dispatch_sync.call(null,G__13545_13546));
+var G__10080_10081 = new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [cljs.core.cst$kw$initialize_DASH_db], null);
+(re_frame.core.dispatch_sync.cljs$core$IFn$_invoke$arity$1 ? re_frame.core.dispatch_sync.cljs$core$IFn$_invoke$arity$1(G__10080_10081) : re_frame.core.dispatch_sync.call(null,G__10080_10081));
 
 routes.core.dev_setup();
 

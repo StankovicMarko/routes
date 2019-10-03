@@ -5,12 +5,18 @@ goog.require('cljs.core.constants');
 goog.require('reagent.core');
 routes.components.navigation.global$module$cljsjs$semantic_ui_react = goog.global["semanticUIReact"];
 routes.components.navigation.active_item = reagent.core.atom.cljs$core$IFn$_invoke$arity$1(cljs.core.cst$kw$home);
-routes.components.navigation.handle_nav_scroll = (function routes$components$navigation$handle_nav_scroll(p__12998){
-var map__12999 = p__12998;
-var map__12999__$1 = (((((!((map__12999 == null))))?(((((map__12999.cljs$lang$protocol_mask$partition0$ & (64))) || ((cljs.core.PROTOCOL_SENTINEL === map__12999.cljs$core$ISeq$))))?true:false):false))?cljs.core.apply.cljs$core$IFn$_invoke$arity$2(cljs.core.hash_map,map__12999):map__12999);
-var percentage = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__12999__$1,cljs.core.cst$kw$percentage);
-var direction = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__12999__$1,cljs.core.cst$kw$direction);
-if(cljs.core._EQ_.cljs$core$IFn$_invoke$arity$2(direction,"down")){
+routes.components.navigation.handle_nav_scroll = (function routes$components$navigation$handle_nav_scroll(p__9807,pc_QMARK_){
+var map__9808 = p__9807;
+var map__9808__$1 = (((((!((map__9808 == null))))?(((((map__9808.cljs$lang$protocol_mask$partition0$ & (64))) || ((cljs.core.PROTOCOL_SENTINEL === map__9808.cljs$core$ISeq$))))?true:false):false))?cljs.core.apply.cljs$core$IFn$_invoke$arity$2(cljs.core.hash_map,map__9808):map__9808);
+var percentage = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__9808__$1,cljs.core.cst$kw$percentage);
+var direction = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__9808__$1,cljs.core.cst$kw$direction);
+if(cljs.core.truth_((function (){var and__4120__auto__ = pc_QMARK_;
+if(cljs.core.truth_(and__4120__auto__)){
+return cljs.core._EQ_.cljs$core$IFn$_invoke$arity$2(direction,"down");
+} else {
+return and__4120__auto__;
+}
+})())){
 if((((percentage > 0.16)) && ((percentage < 0.34)))){
 return cljs.core.reset_BANG_(routes.components.navigation.active_item,cljs.core.cst$kw$how);
 } else {
@@ -30,6 +36,13 @@ return null;
 }
 }
 } else {
+if(cljs.core.truth_((function (){var and__4120__auto__ = pc_QMARK_;
+if(cljs.core.truth_(and__4120__auto__)){
+return cljs.core._EQ_.cljs$core$IFn$_invoke$arity$2(direction,"up");
+} else {
+return and__4120__auto__;
+}
+})())){
 if((percentage < 0.04)){
 return cljs.core.reset_BANG_(routes.components.navigation.active_item,cljs.core.cst$kw$home);
 } else {
@@ -49,6 +62,55 @@ return null;
 
 }
 }
+}
+}
+}
+} else {
+if(((cljs.core.not(pc_QMARK_)) && (cljs.core._EQ_.cljs$core$IFn$_invoke$arity$2(direction,"down")))){
+if((((percentage > 0.16)) && ((percentage < 0.34)))){
+return cljs.core.reset_BANG_(routes.components.navigation.active_item,cljs.core.cst$kw$how);
+} else {
+if((((percentage > 0.34)) && ((percentage < 0.52)))){
+return cljs.core.reset_BANG_(routes.components.navigation.active_item,cljs.core.cst$kw$what);
+} else {
+if((((percentage > 0.52)) && ((percentage < 0.68)))){
+return cljs.core.reset_BANG_(routes.components.navigation.active_item,cljs.core.cst$kw$faq);
+} else {
+if((percentage > 0.72)){
+return cljs.core.reset_BANG_(routes.components.navigation.active_item,cljs.core.cst$kw$contact);
+} else {
+return null;
+
+}
+}
+}
+}
+} else {
+if(((cljs.core.not(pc_QMARK_)) && (cljs.core._EQ_.cljs$core$IFn$_invoke$arity$2(direction,"up")))){
+if((percentage < 0.14)){
+return cljs.core.reset_BANG_(routes.components.navigation.active_item,cljs.core.cst$kw$home);
+} else {
+if((((percentage > 0.14)) && ((percentage < 0.4)))){
+return cljs.core.reset_BANG_(routes.components.navigation.active_item,cljs.core.cst$kw$how);
+} else {
+if((((percentage > 0.41)) && ((percentage < 0.54)))){
+return cljs.core.reset_BANG_(routes.components.navigation.active_item,cljs.core.cst$kw$what);
+} else {
+if((((percentage > 0.55)) && ((percentage < 0.69)))){
+return cljs.core.reset_BANG_(routes.components.navigation.active_item,cljs.core.cst$kw$faq);
+} else {
+if((percentage > 0.78)){
+return cljs.core.reset_BANG_(routes.components.navigation.active_item,cljs.core.cst$kw$contact);
+} else {
+return null;
+
+}
+}
+}
+}
+}
+} else {
+return null;
 }
 }
 }
