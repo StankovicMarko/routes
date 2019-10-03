@@ -128,7 +128,7 @@ h3{
 
 .row {
 
-    min-height: 70vh !important;
+    min-height: 50vh !important;
 
 }
 
@@ -137,7 +137,7 @@ ui.placeholder.segment .button, .ui.placeholder.segment .field, .ui.placeholder.
 }
 
 .ui.placeholder.segment textarea{
-    min-height: 30vh !important;
+    min-height: 25vh !important;
 }
 
 
@@ -165,7 +165,7 @@ ui.placeholder.segment .button, .ui.placeholder.segment .field, .ui.placeholder.
 .anchor-offset {
     display: hidden;
     position: relative;
-    top: -12vh;
+    top: -16vh;
 }
 
 
@@ -215,7 +215,7 @@ ui.placeholder.segment .button, .ui.placeholder.segment .field, .ui.placeholder.
     .anchor-offset {
 	display: hidden;
 	position: relative;
-	top: -9vh;
+	top: -15vh;
     }
 
     .padded-row{

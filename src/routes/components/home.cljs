@@ -8,7 +8,7 @@
 (defn home-text []
   [:div
    [:p "We see a world where we do most with our time."]
-   [:p "With that vision in mind we crafted specific set of apps so that your customers can do the same."]
+   [:p "With that vision in mind we crafted specific set of apps so that you and your customers can do the same."]
    [:p "If you wish your customers:"]
    [:> ui/List {:animated true
                 :vertical-align "middle"

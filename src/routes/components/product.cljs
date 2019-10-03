@@ -13,8 +13,9 @@
              :img "img/producer.jpg"
              :icon "bus"
              :list ["Collects data for services (trial)" ;;(bus for invalids, space for pregant)
+                    "Drivers can send notifications to traffic control (trial)"
                     "Shows speed limits warnings" ;;(future)
-                    "Notifies drivers about traffic" ;; (future)
+                    ;;"Notifies drivers about traffic" ;; (future)
                     "Displays route for drivers"]} ;; (future)
 
             {:title "Admin Panel"
@@ -84,13 +85,10 @@
 
 
 (defn product-item [{:keys [title desc img icon list]}]
-  [:> ui/Segment {:placeholder true
-                  :class-name "transparent-bg no-border"}
-
+  [:> ui/Segment {:class-name "transparent-bg no-border"}
    [:> ui/Grid {:text-align :center
                 :stackable true
                 :columns 2}
-
     [:> ui/Grid.Row {:vertical-align :middle}
      [:> ui/Grid.Column
       [:> ui/Header {:as :h1
@@ -116,34 +114,30 @@
                     :class-name :img-shadow}]]]]])
 
 (defn products []
-  (let []
-    (fn []
-      [:> ui/Grid.Row
-       [:> ui/Grid.Column
-        [:div
-         [:div.anchor-offset {:id "what"}]
-         [:> ui/Segment {:class-name "no-border segment-bg"
-                         :padded true}
+  [:> ui/Grid.Row {:class-name "no-border segment-bg"}
+   [:> ui/Grid.Column
+    [:div
+     [:div.anchor-offset {:id "what"}]
+     [:> ui/Container {:text-align :center}
+      [:h2 {:style {:color :white}} "WHAT WE OFFER"]
+      [product-item (get items @screen-index)]]
 
-          [:> ui/Container {:text-align :center}
-           [product-item (get items @screen-index)]]
+     [:> ui/Menu {:inverted true
+                  :pointing true
+                  :secondary true
+                  :fluid true
+                  :widths 4
+                  :size :massive}
 
-          [:> ui/Menu {:inverted true
-                       :pointing true
-                       :secondary true
-                       :fluid true
-                       :widths 4
-                       :size :massive}
+      [:> ui/Menu.Item {:name :admin
+                        :active (= (:screen @active-screen) :producer)
+                        :on-click #(handle-click {:index 0})} "Producer App"]
 
-           [:> ui/Menu.Item {:name :admin
-                             :active (= (:screen @active-screen) :producer)
-                             :on-click #(handle-click {:index 0})} "Producer App"]
+      [:> ui/Menu.Item {:active (= (:screen @active-screen) :admin)
+                        :on-click #(handle-click {:index 1})} "Admin Panel"]
 
-           [:> ui/Menu.Item {:active (= (:screen @active-screen) :admin)
-                             :on-click #(handle-click {:index 1})} "Admin Panel"]
+      [:> ui/Menu.Item {:active (= (:screen @active-screen) :client)
+                        :on-click #(handle-click {:index 2})}  "Client App"]
 
-           [:> ui/Menu.Item {:active (= (:screen @active-screen) :client)
-                             :on-click #(handle-click {:index 2})}  "Client App"]
-
-           [:> ui/Menu.Item {:active (= (:screen @active-screen) :overview)
-                             :on-click #(handle-click {:index 3})} "Data Overview"]]]]]])))
+      [:> ui/Menu.Item {:active (= (:screen @active-screen) :overview)
+                        :on-click #(handle-click {:index 3})} "Data Overview"]]]]])

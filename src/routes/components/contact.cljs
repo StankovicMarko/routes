@@ -10,12 +10,12 @@
     (fn []
       [:> ui/Grid.Row
        [:> ui/Grid.Column
-        [:div.anchor-offset {:id "contact"}]
-         [:div
+        [:div
          [:> ui/Segment {:class-name "no-border segment-bg"}
           [:> ui/Container {:text-align :center}
-           [:> ui/Segment {:placeholder true
+           [:> ui/Segment {:placeholder true ;; for some reason this expands the row
                            :class-name "transparent-bg no-border padded-row"}
+            [:div.anchor-offset {:id "contact"}]
             [:h2 "CONTACT US"]
 
             [:> ui/Form {:class-name "padded-row"
