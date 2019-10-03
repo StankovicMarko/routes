@@ -163,9 +163,9 @@ ui.placeholder.segment .button, .ui.placeholder.segment .field, .ui.placeholder.
 
 
 .anchor-offset {
-    display: hidden;
+    visibility: hidden;
     position: relative;
-    top: -16vh;
+    top: -14.5vh; /*value is left for how section for some reason it doesnt work when i inline*/
 }
 
 

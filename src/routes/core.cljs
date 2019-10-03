@@ -100,7 +100,8 @@
                                              (goog-obj/getValueByKeys #js ["calculations"])
                                              (js->clj :keywordize-keys true)
                                              (select-keys [:percentagePassed :direction])
-                                             (clojure.set/rename-keys {:percentagePassed :percentage}))))}
+                                             (clojure.set/rename-keys {:percentagePassed :percentage}))
+                                         @pc?))}
          (if @pc?
            [layout ref]
            [mobile-layout ref])]]])))

@@ -25,12 +25,11 @@
 (defn steps []
   [:> ui/Grid.Row {:class-name "light-blue padded-row"}
    [:> ui/Grid.Column
+    [:div.anchor-offset {:id "how"}]
     [:h2 "HOW IT WORKS"]
     [:> ui/Grid {:stackable true}
      [:> ui/Grid.Row {:columns 3
                       :class-name "light-blue"}
-      [:div.anchor-offset {:id "how"}]
-
       (for [item [{:header "Step 1"
                    :src "img/how1.png"
                    :desc "Get in touch with us and learn about data and hardware requirements in order to use our services"}

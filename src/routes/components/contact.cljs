@@ -15,7 +15,8 @@
           [:> ui/Container {:text-align :center}
            [:> ui/Segment {:placeholder true ;; for some reason this expands the row
                            :class-name "transparent-bg no-border padded-row"}
-            [:div.anchor-offset {:id "contact"}]
+            [:div.anchor-offset {:id "contact"
+                                 :style {:top :-19vh}}]
             [:h2 "CONTACT US"]
 
             [:> ui/Form {:class-name "padded-row"

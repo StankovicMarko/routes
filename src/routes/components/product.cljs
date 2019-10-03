@@ -117,8 +117,9 @@
   [:> ui/Grid.Row {:class-name "no-border segment-bg"}
    [:> ui/Grid.Column
     [:div
-     [:div.anchor-offset {:id "what"}]
      [:> ui/Container {:text-align :center}
+      [:div.anchor-offset {:id "what"
+                           :style {:top :-24vh}}]
       [:h2 {:style {:color :white}} "WHAT WE OFFER"]
       [product-item (get items @screen-index)]]
 

@@ -7,21 +7,46 @@
 (def active-item (r/atom :home))
 
 
-(defn handle-nav-scroll [{:keys [percentage direction]}]
-  (if (= direction "down")
-    (cond
-      (and (> percentage 0.16) (< percentage 0.34)) (reset! active-item :how)
-      (and (> percentage 0.34) (< percentage 0.52)) (reset! active-item :what)
-      (and (> percentage 0.52) (< percentage 0.68)) (reset! active-item :faq)
-      (and (> percentage 0.72)) (reset! active-item :contact)
-      :else nil)
-    (cond
-      (< percentage 0.04) (reset! active-item :home)
-      (and (> percentage 0.14) (< percentage 0.24)) (reset! active-item :how)
-      (and (> percentage 0.24) (< percentage 0.40)) (reset! active-item :what)
-      (and (> percentage 0.40) (< percentage 0.57)) (reset! active-item :faq)
-      (and (> percentage 0.68)) (reset! active-item :contact)
-      :else nil)))
+(defn handle-nav-scroll [{:keys [percentage direction]} pc?]
+  (cond
+    (and pc? (= direction "down")) (cond
+                                     (and (> percentage 0.16)
+                                          (< percentage 0.34)) (reset! active-item :how)
+                                     (and (> percentage 0.34)
+                                          (< percentage 0.52)) (reset! active-item :what)
+                                     (and (> percentage 0.52)
+                                          (< percentage 0.68)) (reset! active-item :faq)
+                                     (and (> percentage 0.72)) (reset! active-item :contact)
+                                     :else nil)
+    (and pc? (= direction "up")) (cond
+                                   (< percentage 0.04) (reset! active-item :home)
+                                   (and (> percentage 0.14)
+                                        (< percentage 0.24)) (reset! active-item :how)
+                                   (and (> percentage 0.24)
+                                        (< percentage 0.40)) (reset! active-item :what)
+                                   (and (> percentage 0.40)
+                                        (< percentage 0.57)) (reset! active-item :faq)
+                                   (and (> percentage 0.68)) (reset! active-item :contact)
+                                   :else nil)
+    (and (not pc?) (= direction "down")) (cond
+                                           (and (> percentage 0.16)
+                                                (< percentage 0.34)) (reset! active-item :how)
+                                           (and (> percentage 0.34)
+                                                (< percentage 0.52)) (reset! active-item :what)
+                                           (and (> percentage 0.52)
+                                                (< percentage 0.68)) (reset! active-item :faq)
+                                           (and (> percentage 0.72)) (reset! active-item :contact)
+                                           :else nil)
+    (and (not pc?) (= direction "up")) (cond
+                                         (< percentage 0.14) (reset! active-item :home)
+                                         (and (> percentage 0.14)
+                                              (< percentage 0.40)) (reset! active-item :how)
+                                         (and (> percentage 0.41)
+                                              (< percentage 0.54)) (reset! active-item :what)
+                                         (and (> percentage 0.55)
+                                              (< percentage 0.69)) (reset! active-item :faq)
+                                         (and (> percentage 0.78)) (reset! active-item :contact)
+                                         :else nil)))
 
 
 (defn nav-menu [base-component options]
