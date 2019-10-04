@@ -35,4 +35,18 @@
                                               :class-name "no-border"
                                               :circular true
                                               :size :big
-                                              }])}]]]]]]]])
+                                              }])}]]
+
+        ;;https://developer.twitter.com/en/docs/twitter-for-websites/tweet-button/overview
+        [:a {:href "https://twitter.com/intent/tweet?text=We%20need%20this%20in%20our%20city%21&hashtags=BusRoutes,SaveTime,Apps&url=http://busroutes.io"
+             :target "_blank"}
+         [:> ui/Popup {:content "Twitter"
+                       :inverted true
+                       :position "top center"
+                       :trigger (r/as-component
+                                 [:> ui/Icon {:name "twitter square"
+                                              :class-name "no-border"
+                                              :circular true
+                                              :size :big
+                                              }])}]]
+        ]]]]]])
