@@ -46,24 +46,24 @@ var ref = reagent.core.atom.cljs$core$IFn$_invoke$arity$1(null);
 return ((function (ref){
 return (function (){
 return new cljs.core.PersistentVector(null, 4, 5, cljs.core.PersistentVector.EMPTY_NODE, [cljs.core.cst$kw$_GT_,routes.core.global$module$cljsjs$semantic_ui_react.Ref,new cljs.core.PersistentArrayMap(null, 1, [cljs.core.cst$kw$inner_DASH_ref,((function (ref){
-return (function (p1__10060_SHARP_){
-return cljs.core.reset_BANG_(ref,p1__10060_SHARP_);
+return (function (p1__10061_SHARP_){
+return cljs.core.reset_BANG_(ref,p1__10061_SHARP_);
 });})(ref))
 ], null),new cljs.core.PersistentVector(null, 4, 5, cljs.core.PersistentVector.EMPTY_NODE, [cljs.core.cst$kw$_GT_,routes.core.global$module$cljsjs$semantic_ui_react.Responsive,new cljs.core.PersistentArrayMap(null, 2, [cljs.core.cst$kw$fire_DASH_on_DASH_mount,true,cljs.core.cst$kw$on_DASH_update,((function (ref){
 return (function (event,view_obj){
-return cljs.core.reset_BANG_(routes.core.pc_QMARK_,((function (){var G__10061 = view_obj;
-var G__10062 = ["width"];
-return goog.object.getValueByKeys(G__10061,G__10062);
-})() >= (function (){var G__10063 = routes.core.global$module$cljsjs$semantic_ui_react.Responsive;
-var G__10064 = ["onlyMobile","maxWidth"];
-return goog.object.getValueByKeys(G__10063,G__10064);
+return cljs.core.reset_BANG_(routes.core.pc_QMARK_,((function (){var G__10062 = view_obj;
+var G__10063 = ["width"];
+return goog.object.getValueByKeys(G__10062,G__10063);
+})() >= (function (){var G__10064 = routes.core.global$module$cljsjs$semantic_ui_react.Responsive;
+var G__10065 = ["onlyMobile","maxWidth"];
+return goog.object.getValueByKeys(G__10064,G__10065);
 })()));
 });})(ref))
 ], null),new cljs.core.PersistentVector(null, 4, 5, cljs.core.PersistentVector.EMPTY_NODE, [cljs.core.cst$kw$_GT_,routes.core.global$module$cljsjs$semantic_ui_react.Visibility,new cljs.core.PersistentArrayMap(null, 1, [cljs.core.cst$kw$on_DASH_update,((function (ref){
 return (function (e,calc){
-return routes.components.navigation.handle_nav_scroll(clojure.set.rename_keys(cljs.core.select_keys(cljs.core.js__GT_clj.cljs$core$IFn$_invoke$arity$variadic((function (){var G__10065 = calc;
-var G__10066 = ["calculations"];
-return goog.object.getValueByKeys(G__10065,G__10066);
+return routes.components.navigation.handle_nav_scroll(clojure.set.rename_keys(cljs.core.select_keys(cljs.core.js__GT_clj.cljs$core$IFn$_invoke$arity$variadic((function (){var G__10066 = calc;
+var G__10067 = ["calculations"];
+return goog.object.getValueByKeys(G__10066,G__10067);
 })(),cljs.core.prim_seq.cljs$core$IFn$_invoke$arity$2([cljs.core.cst$kw$keywordize_DASH_keys,true], 0)),new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [cljs.core.cst$kw$percentagePassed,cljs.core.cst$kw$direction], null)),new cljs.core.PersistentArrayMap(null, 1, [cljs.core.cst$kw$percentagePassed,cljs.core.cst$kw$percentage], null)),cljs.core.deref(routes.core.pc_QMARK_));
 });})(ref))
 ], null),(cljs.core.truth_(cljs.core.deref(routes.core.pc_QMARK_))?new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [routes.core.layout,ref], null):new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [routes.core.mobile_layout,ref], null))], null)], null)], null);
@@ -95,8 +95,8 @@ routes.core.on_reload = (function routes$core$on_reload(){
 return routes.core.mount_app_element();
 });
 routes.core.init = (function routes$core$init(){
-var G__10067_10068 = new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [cljs.core.cst$kw$initialize_DASH_db], null);
-(re_frame.core.dispatch_sync.cljs$core$IFn$_invoke$arity$1 ? re_frame.core.dispatch_sync.cljs$core$IFn$_invoke$arity$1(G__10067_10068) : re_frame.core.dispatch_sync.call(null,G__10067_10068));
+var G__10068_10069 = new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [cljs.core.cst$kw$initialize_DASH_db], null);
+(re_frame.core.dispatch_sync.cljs$core$IFn$_invoke$arity$1 ? re_frame.core.dispatch_sync.cljs$core$IFn$_invoke$arity$1(G__10068_10069) : re_frame.core.dispatch_sync.call(null,G__10068_10069));
 
 routes.core.dev_setup();
 
