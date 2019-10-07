@@ -21,7 +21,7 @@
             [:h2 "CONTACT US"]
 
             [:> ui/Form {:class-name "padded-row"
-                         :action "https://formspree.io/stefan_kurcubic@yahoo.com"
+                         :action "https://formspree.io/hello@busroutes.io"
                          :method "post"}
              [:> ui/Form.Group {:widths "equal"}
               [:> ui/Form.Input {:placeholder "Your name"
