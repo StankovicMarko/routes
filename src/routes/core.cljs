@@ -156,3 +156,11 @@
 ;; - add video explaining what you do that is animated
 
 ;; possibly update cider and lein
+
+;;>> SEO
+;; https://www.youtube.com/watch?v=eofkzs0fVAO
+;;https://www.link-assistant.com/news/html-tags-for-seo.html?fbclid=IwAR22X1GhORDyDQMJ7GdVhgdWfc_eaiZPJhrQsly850qLLM1oXP8P1RyWE84
+
+;;>> video
+;; editable video templates free download(search)
+;;https://elements.envato.com/video-templates/product-promo
